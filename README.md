@@ -15,7 +15,7 @@ Bonjour et bienvenue sur le dépôt de mon travail, qui traite du septième proj
 
 Vous trouverez également, dans le dossier **ressources**, les diagrammes UML conçus en amont du projet, la base de données au format SQL, ainsi qu'un lien vers la documentation de l'API, hébergée par Postman.
 
-[![Documentation](https://img.shields.io/badge/Dépôt_original--dddddd?style=for-the-badge&logo=Symfony&logoColor=white)](https://openclassrooms.com/projects/ameliorer-un-projet-existant-1)
+[![Projet](https://img.shields.io/badge/Projet--7d5ce9?style=for-the-badge&logo=Symfony&logoColor=white)](https://openclassrooms.com/projects/ameliorer-un-projet-existant-1) [![Dépôt](https://img.shields.io/badge/Dépôt--000000?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/saro0h/projet8-TodoList)
 
 ---
 
