@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+//use Sensio\Bundle\FrameworkExtraBundle\Configuration;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
@@ -12,6 +13,6 @@ class DefaultController extends AbstractController
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        return $this->render('default/index.html.twig', ['user' => $this->getUser()]);
     }
 }

@@ -5,10 +5,27 @@
 
 {% block body %}
     <div class="row">
+
+{#        {{ form_start(registrationForm) }}#}
+{#            {{ form_row(registrationForm.email) }}#}
+{#        {{ form_end(registrationForm) }}#}
+
+{#        {{ form_start(form) }}#}
+{#            {{ form_row(form.email) }}#}
+{#            {{ form_widget(form) }}#}
+{#        {{ form_end(form) }}#}
         {{ form_start(form, {'action' : path('user_create')}) }}
             {{ form_widget(form) }}
 
             <button type="submit" class="btn btn-success pull-right">Ajouter</button>
         {{ form_end(form) }}
+{#        {{ form_start(form) }}#}
+{#            {{ form_errors(form) }}#}
+{#    #}
+{#            {{ form_row(form.name) }}#}
+{#            {{ form_row(form.dueDate) }}#}
+{#    #}
+{#            {{ form_row(form.submit, { 'label': 'Submit me' }) }}#}
+{#        {{ form_end(form) }}#}
     </div>
 {% endblock %}
