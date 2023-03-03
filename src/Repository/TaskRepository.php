@@ -46,7 +46,8 @@ class TaskRepository extends ServiceEntityRepository
             ->andWhere('t.isDone = :val')
             ->setParameter('val', $value)
             ->getQuery()
-            ->getResult();
+            ->getResult()
+        ;
     }
 
 //    /**

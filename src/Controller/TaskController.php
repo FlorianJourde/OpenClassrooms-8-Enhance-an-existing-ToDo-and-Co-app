@@ -9,7 +9,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\Routing\Annotation\Route;
+use function PHPUnit\Framework\throwException;
 
 class TaskController extends AbstractController
 {
@@ -107,6 +109,12 @@ class TaskController extends AbstractController
      */
     public function deleteTaskAction(Task $task, EntityManagerInterface $em)
     {
+        if (!(in_array('ROLE_ADMIN', $this->getUser()->getRoles(), true))) {
+            if (!($task->getAuthor() === $this->getUser())) {
+                throw new AccessDeniedHttpException('Vous n\'avez pas les droits pour supprimer cette tâche.');
+            }
+        }
+
         $em->remove($task);
         $em->flush();
 
