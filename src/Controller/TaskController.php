@@ -16,7 +16,7 @@ use function PHPUnit\Framework\throwException;
 class TaskController extends AbstractController
 {
     /**
-     * @Route("/tasks", name="task_list")
+     * @Route("/tasks", name="app_task_list")
      */
     public function listAction(TaskRepository $taskRepository)
     {
@@ -30,7 +30,7 @@ class TaskController extends AbstractController
      */
     public function getTodoTasks(TaskRepository $taskRepository)
     {
-        $doneTasks = $taskRepository->findAllByStatus(0);
+        $doneTasks = $taskRepository->findAllByStatus(false);
 
         return $this->render('task/list-done.html.twig', ['tasks' => $doneTasks]);
     }
@@ -40,13 +40,14 @@ class TaskController extends AbstractController
      */
     public function getDoneTasks(TaskRepository $taskRepository)
     {
-        $doneTasks = $taskRepository->findAllByStatus(1);
+        $doneTasks = $taskRepository->findAllByStatus(true);
 
         return $this->render('task/list-done.html.twig', ['tasks' => $doneTasks]);
     }
 
     /**
-     * @Route("/tasks/create", name="task_create")
+     * @IsGranted("ROLE_USER")
+     * @Route("/tasks/create", name="app_task_create")
      */
     public function createAction(Request $request, EntityManagerInterface $em)
     {
@@ -62,14 +63,15 @@ class TaskController extends AbstractController
 
             $this->addFlash('success', 'La tâche a été bien été ajoutée.');
 
-            return $this->redirectToRoute('task_list');
+            return $this->redirectToRoute('app_task_list');
         }
 
         return $this->render('task/create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
-     * @Route("/tasks/{id}/edit", name="task_edit")
+     * @IsGranted("ROLE_USER")
+     * @Route("/tasks/{id}/edit", name="app_task_edit")
      */
     public function editAction(Task $task, Request $request, EntityManagerInterface $em)
     {
@@ -82,27 +84,29 @@ class TaskController extends AbstractController
 
             $this->addFlash('success', 'La tâche a bien été modifiée.');
 
-            return $this->redirectToRoute('task_list');
+            return $this->redirectToRoute('app_task_list');
         }
 
         return $this->render('task/edit.html.twig', ['form' => $form->createView(), 'task' => $task]);
     }
 
     /**
-     * @Route("/tasks/{id}/toggle", name="task_toggle")
+     * @IsGranted("ROLE_USER")
+     * @Route("/tasks/{id}/toggle", name="app_task_toggle")
      */
-    public function toggleTaskAction(Task $task, EntityManagerInterface $em)
+    public function toggleTaskAction(Task $task, EntityManagerInterface $em, Request $request)
     {
         $task->toggle(!$task->isDone());
         $em->flush();
 
         $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
 
-        return $this->redirectToRoute('task_list');
+        return $this->redirectToRoute('app_task_list');
     }
 
     /**
-     * @Route("/tasks/{id}/delete", name="task_delete")
+     * @IsGranted("ROLE_USER")
+     * @Route("/tasks/{id}/delete", name="app_task_delete")
      */
     public function deleteTaskAction(Task $task, EntityManagerInterface $em)
     {
@@ -117,6 +121,6 @@ class TaskController extends AbstractController
 
         $this->addFlash('success', 'La tâche a bien été supprimée.');
 
-        return $this->redirectToRoute('task_list');
+        return $this->redirectToRoute('app_task_list');
     }
 }
