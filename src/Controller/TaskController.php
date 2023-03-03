@@ -28,7 +28,7 @@ class TaskController extends AbstractController
      */
     public function getTodoTasks(TaskRepository $taskRepository)
     {
-        $doneTasks = $taskRepository->findAllDoneTasks(0);
+        $doneTasks = $taskRepository->findAllByStatus(0);
 
         return $this->render('task/list-done.html.twig', ['tasks' => $doneTasks]);
     }
@@ -38,7 +38,7 @@ class TaskController extends AbstractController
      */
     public function getDoneTasks(TaskRepository $taskRepository)
     {
-        $doneTasks = $taskRepository->findAllDoneTasks(1);
+        $doneTasks = $taskRepository->findAllByStatus(1);
 
         return $this->render('task/list-done.html.twig', ['tasks' => $doneTasks]);
     }

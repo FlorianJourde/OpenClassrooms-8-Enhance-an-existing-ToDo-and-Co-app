@@ -40,7 +40,7 @@ class TaskRepository extends ServiceEntityRepository
         }
     }
 
-    public function findAllDoneTasks($value): Array
+    public function findAllByStatus($value): Array
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.isDone = :val')

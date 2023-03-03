@@ -1,12 +1,46 @@
-<div class="row">
-    <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
-    <a href="{{ path('user_list') }}" class="btn btn-info btn-primary">Liste des utilisateurs</a>
 
-    {% if app.user %}
+<nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+
+    {#            <div class="container">#}
+    {#                <div class="row">#}
+    {#                    <div class="navbar-header">#}
+                            <a class="navbar-brand" href="{{ path('homepage') }}">To Do List app</a>
+
+                            <img src="{{ asset('img/Logo_OpenClassrooms.png') }}" alt="OpenClassrooms" />
+    {#                    </div>#}
+            </div>
+    {#                </div>#}
+    {#            </div>#}
+
+                <div class="col-lg-6">
+                    <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
+                    <a href="{{ path('user_list') }}" class="btn btn-info btn-primary">Liste des utilisateurs</a>
+
+                    {% if app.user %}
                         <a href="{{ path('app_logout') }}" class="pull-right btn btn-danger">Se déconnecter</a>
-    {% endif %}
+                    {% endif %}
 
-    {% if not app.user and 'login' != app.request.attributes.get('_route') %}
+                    {% if not app.user and 'login' != app.request.attributes.get('_route') %}
                         <a href="{{ path('app_login') }}" class="btn btn-success">Se connecter</a>
-    {% endif %}
+                    {% endif %}
+                </div>
+    {#        </nav>#}
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <a href="{{ path('task_create') }}" class="btn btn-success">Créer une nouvelle tâche</a>
+            <a href="{{ path('task_list') }}" class="btn btn-primary">Toutes les tâches</a>
+            <a href="{{ path('app_tasks_todo') }}" class="btn btn-secondary">À faire</a>
+            <a href="{{ path('app_tasks_done') }}" class="btn btn-secondary">Tâches terminées</a>
+        </div>
+    </div>
 </div>
+
+{#<div class="row">#}
+{#</div>#}
