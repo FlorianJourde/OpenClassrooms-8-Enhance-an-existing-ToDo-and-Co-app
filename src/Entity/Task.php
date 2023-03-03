@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Datetime;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\TaskRepository;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -41,9 +42,14 @@ class Task
      */
     private $isDone;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="tasks")
+     */
+    private $author;
+
     public function __construct()
     {
-        $this->createdAt = new \Datetime();
+        $this->createdAt = new Datetime();
         $this->isDone = false;
     }
 
@@ -100,6 +106,18 @@ class Task
     public function setIsDone(bool $isDone): self
     {
         $this->isDone = $isDone;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }
