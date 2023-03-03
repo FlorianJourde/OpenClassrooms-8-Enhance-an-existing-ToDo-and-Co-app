@@ -38,20 +38,10 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setPassword($userPasswordHasher->hashPassword($user, $form->get('password')->getData()));
-//            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
-//            dd($form);
-//            $em = $this->getDoctrine()->getManager();
-//            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
-//            $user->setPassword($password);
-//
-//            $em->persist($register->getUser());
+            $user->setRoles($form->get('roles')->getData());
 
             $em->persist($user);
             $em->flush();
-//            $em->flush();
-
-//            $em->persist($user, $register);
-//            $em->flush();
 
             $this->addFlash('success', "L'utilisateur a bien été ajouté.");
 
@@ -64,17 +54,24 @@ class UserController extends AbstractController
     /**
      * @Route("/users/{id}/edit", name="user_edit")
      */
-    public function editAction(User $user, Request $request)
+    public function editAction(User $user, Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $em)
     {
         $form = $this->createForm(UserType::class, $user);
-
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
-            $user->setPassword($password);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword($userPasswordHasher->hashPassword($user, $form->get('password')->getData()));
+            $roles = $form->get('roles')->getData();
+            $formattedRoles = [];
 
-            $this->getDoctrine()->getManager()->flush();
+            foreach ($roles as $role) {
+                $formattedRoles[] = $role;
+            }
+
+            $user->setRoles($formattedRoles);
+
+            $em->persist($user);
+            $em->flush();
 
             $this->addFlash('success', "L'utilisateur a bien été modifié");
 

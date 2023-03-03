@@ -27,13 +27,22 @@ class UserType extends AbstractType
                 'second_options' => ['label' => 'Tapez le mot de passe à nouveau'],
             ])
             ->add('roles', ChoiceType::class, [
-                'multiple' => true,
                 'choices' => [
-                    'Admin' => 'ROLE_ADMIN',
-                    'User' => 'ROLE_USER',
+                    'Utilisateur' => 'ROLE_USER',
+                    'Administrateur' => 'ROLE_ADMIN'
                 ],
-                'label' => 'Rôle de l\'utilisateur à créer'
+                'expanded' => true,
+                'multiple' => true,
+                'label' => 'Rôles'
             ])
+//            ->add('roles', ChoiceType::class, [
+//                'multiple' => true,
+//                'choices' => [
+//                    'Admin' => 'ROLE_ADMIN',
+//                    'User' => 'ROLE_USER'
+//                ],
+//                'label' => 'Rôle de l\'utilisateur à créer'
+//            ])
         ;
     }
 
