@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Task;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+//use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -37,6 +38,15 @@ class TaskRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findAllDoneTasks($value): Array
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.isDone = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
     }
 
 //    /**
