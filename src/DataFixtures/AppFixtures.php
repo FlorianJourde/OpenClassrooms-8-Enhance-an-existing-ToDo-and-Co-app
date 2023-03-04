@@ -34,7 +34,7 @@ class AppFixtures extends Fixture
             $user->setRoles(['ROLE_USER']);
             $user->setPassword($this->userPasswordHasher->hashPassword($user, '123456'));
             $user->setEmail('user' . ($i + 1)  . '@todoandco.com');
-            $user->setUsername('User' . ($i + 1));
+            $user->setUsername('Utilisateur' . ($i + 1));
             $manager->persist($user);
             $users[] = $user;
         }
