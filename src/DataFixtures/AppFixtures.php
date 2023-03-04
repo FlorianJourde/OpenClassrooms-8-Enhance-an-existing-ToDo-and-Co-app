@@ -53,11 +53,13 @@ class AppFixtures extends Fixture
             'www.senscritique.com <br> www.allocine.com <br> www.last.fm'
         ];
 
-        for ($i = 0; $i < 15; $i++) {
+        $status = [true, false];
+
+        for ($i = 0; $i < 30; $i++) {
             $task = new Task();
             $task->setTitle($tasksTitle[array_rand($tasksTitle)]);
             $task->setContent($tasksContent[array_rand($tasksContent)]);
-            $task->setIsDone(false);
+            $task->setIsDone($status[array_rand($status)]);
             $task->setAuthor($users[array_rand($users)]);
             $manager->persist($task);
         }

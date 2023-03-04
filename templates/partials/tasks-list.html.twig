@@ -1,31 +1,88 @@
-{% for task in tasks %}
-    <div class="thumbnail">
-        <div class="caption">
-            <h4 class="pull-right">
-                {% if task.isDone %}<span class="glyphicon glyphicon-ok"></span>{% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}
-            </h4>
-            <h4><a href="{{ path('app_task_edit', {'id' : task.id }) }}">{{ task.title }}</a></h4>
-            <p>{{ task.content | raw }}</p>
-            {%  if task.author is null %}
-                <p>Utilisateur inconnu</p>
+<div class="tasks-grid margin-top-50">
+    {% set nextWide = null %}
+    {% set bigWideGap = false %}
+
+    {% set nextTall = null %}
+    {% set bigTallGap = true %}
+
+    {% for task in tasks %}
+        {% set isWide = '' %}
+        {% set firstWide = 3 %}
+        {% if loop.index is same as firstWide %}
+            {% set isWide = 'wide' %}
+            {% set nextWide = loop.index + 4 %}
+        {% endif %}
+
+        {% if loop.index is same as nextWide %}
+            {% set isWide = 'wide' %}
+            {% if bigWideGap is same as true %}
+                {% set nextWide = loop.index + 4 %}
+                {% set bigWideGap = false %}
             {% else %}
-                {#                        {{ dump(task.author.userIdentifier) }}#}
-                <p>{{ task.author.userIdentifier }}</p>
+                {% set nextWide = loop.index + 8 %}
+                {% set bigWideGap = true %}
             {% endif %}
-        </div>
-        <div>
-            <form action="{{ path('app_task_toggle', {'id' : task.id }) }}">
-                <button class="btn btn-success btn-sm pull-right">
-                    {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
-                </button>
-            </form>
-            <form action="{{ path('app_task_delete', {'id' : task.id }) }}">
-                <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
-            </form>
-        </div>
-    </div>
-    {% else %}
-        <div class="alert alert-warning" role="alert">
-            Il n'y a pas encore de tâche enregistrée. <a href="{{ path('app_task_create') }}" class="btn btn-warning pull-right">Créer une tâche</a>
-        </div>
-{% endfor %}
+        {% endif %}
+
+        {% set isTall = '' %}
+        {% set firstTall = 1 %}
+        {% if loop.index is same as firstTall %}
+            {% set isTall = 'tall' %}
+            {% set nextTall = loop.index + 8 %}
+        {% endif %}
+
+        {% if loop.index is same as nextTall %}
+            {% set isTall = 'tall' %}
+            {% if bigTallGap is same as true %}
+                {% set nextTall = loop.index + 4 %}
+                {% set bigTallGap = false %}
+            {% else %}
+                {% set nextTall = loop.index + 8 %}
+                {% set bigTallGap = true %}
+            {% endif %}
+        {% endif %}
+
+            <div class="item {{ isWide }} {{ isTall }}" style="background-color: {{ cycle(["var(--clr-very-light-blue)", "var(--clr-very-light-yellow)", "var(--clr-very-light-pink)", "var(--clr-very-light-green)", "var(--clr-very-light-purple)"], loop.index) }};">
+                <div class="caption">
+{#                    {{ dump(loop.index) }}#}
+{#                    {{ dump(nextTall) }}#}
+{#                    <h4 class="pull-right">#}
+{#                        {% if task.isDone %}<span class="glyphicon glyphicon-ok"></span>{% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}#}
+{#                        <span class="glyphicon glyphicon-ok"></span>#}
+                        <div class="status-picto">
+                            {% if task.isDone %}
+                                <img src="{{ asset('img/todo-and-co-logo-blue.svg') }}" alt="">
+                            {% else %}
+                                <img src="{{ asset('img/todo-and-co-cross.svg') }}" alt="">
+                            {% endif %}
+                        </div>
+
+{#                        <img src="{{ asset('img/todo-and-co-cross.svg') }}" alt="">#}
+{#                        <span class="glyphicon glyphicon-remove"></span>#}
+{#                    </h4>#}
+                    <h4><a href="{{ path('app_task_edit', {'id' : task.id }) }}">{{ task.title }}</a></h4>
+                    <p>{{ task.content | raw }}</p>
+                    {%  if task.author is null %}
+                        <p class="author">Utilisateur inconnu</p>
+                    {% else %}
+{#                        {{ dump(task.author.userIdentifier) }}#}
+                        <p class="author">{{ task.author.userIdentifier }}</p>
+                    {% endif %}
+                </div>
+                <div class="actions">
+                    <form action="{{ path('app_task_toggle', {'id' : task.id }) }}">
+                        <button class="button-secondary button-dark-blue {#btn btn-success btn-sm pull-right#}">
+                            {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
+                        </button>
+                    </form>
+                    <form action="{{ path('app_task_delete', {'id' : task.id }) }}">
+                        <button class="button-primary button-transparent-grey {#btn btn-danger btn-sm pull-right#}">Supprimer</button>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                Il n'y a pas encore de tâche enregistrée. <a href="{{ path('app_task_create') }}" class="btn btn-warning pull-right">Créer une tâche</a>
+            </div>
+    {% endfor %}
+</div>

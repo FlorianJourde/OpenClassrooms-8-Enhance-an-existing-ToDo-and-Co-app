@@ -50,6 +50,15 @@ class TaskRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findSome($value): Array
+    {
+        return $this->createQueryBuilder('t')
+            ->setMaxResults($value)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 //    /**
 //     * @return Task[] Returns an array of Task objects
 //     */

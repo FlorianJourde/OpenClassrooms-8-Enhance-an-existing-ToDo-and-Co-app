@@ -82,7 +82,7 @@ nav {
     line-height: 1em;
     color: var(--clr-dark-grey);
     word-break: keep-all;
-    text-shadow: 3px 3px 0 #f3f4f6;
+    text-shadow: 1px 3px 0 var(--clr-very-light-grey);
 }
 
 .navbar .logo a span:nth-child(1) {

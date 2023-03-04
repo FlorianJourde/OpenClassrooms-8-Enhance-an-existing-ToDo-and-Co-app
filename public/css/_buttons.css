@@ -26,8 +26,48 @@
   border-radius: var(--br-primary);
 }
 
+.button-primary.button-big, .button-secondary.button-big, form button[type=submit].button-big {
+  padding: 15px 25px;
+}
+
+.button-secondary {
+  background-color: unset;
+}
+
+.button-primary.button-blue {
+  background-color: var(--clr-blue);
+}
+
+.button-primary.button-pink {
+  background-color: var(--clr-pink);
+}
+
+.button-primary.button-yellow {
+  background-color: var(--clr-yellow);
+}
+
 .button-primary.button-dark-blue, form button[type=submit] {
-    background-color: var(--clr-dark-blue);
+  background-color: var(--clr-blue);
+}
+
+.button-primary.button-dark-pink {
+  background-color: var(--clr-dark-pink);
+}
+
+.button-primary.button-dark-yellow {
+  background-color: var(--clr-dark-yellow);
+}
+
+.button-primary.button-dark-grey {
+  background-color: var(--clr-dark-grey);
+}
+
+.button-primary.button-transparent-grey {
+  background-color: var(--clr-transparent-grey);
+}
+
+.button-primary.button-transparent-grey:hover {
+  background-color: var(--clr-transparent-black);
 }
 
 /*.button-primary.button-black, form button[type=submit] {*/
@@ -43,8 +83,12 @@
 /*  background-color: var(--clr-very-dark-grey);*/
 /*}*/
 
+.button-secondary.button-dark-grey {
+  color: var(--clr-dark-grey);
+}
+
 .button-secondary.button-dark-blue {
-    color: var(--clr-dark-blue);
+  color: var(--clr-dark-blue);
 }
 
 .button-secondary.button-dark-pink {

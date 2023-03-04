@@ -1,10 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block header_title %}
-    <h1>Bienvenue sur Todo List, l'application vous permettant de gérer l'ensemble de vos tâches sans effort !</h1>
+    <h1>Bienvenue sur <span style="color: var(--clr-blue);">ToDo & Co</span>, l'application vous permettant de gérer l'ensemble de vos tâches <span style="color: var(--clr-blue);">sans effort !</span></h1>
 {% endblock %}
 
 {% block body %}
+
+    <div class="wrapper">
+        {% include 'partials/tasks-list.html.twig' %}
+        <div class="actions margin-top-50">
+            <a href="{{ path('app_task_list') }}" class="button-primary button-big button-blue">Voir toutes les tâches</a>
+        </div>
+    </div>
 {#    <div class="row">#}
 {#        <a href="{{ path('app_task_create') }}" class="btn btn-success">Créer une nouvelle tâche</a>#}
 {#        <a href="{{ path('task_list') }}" class="btn btn-primary">Toutes les tâches</a>#}
