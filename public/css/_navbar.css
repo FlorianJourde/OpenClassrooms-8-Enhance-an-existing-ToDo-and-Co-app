@@ -1,0 +1,123 @@
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.admin-navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 30px;
+    background-color: var(--clr-very-dark-grey);
+    z-index: 10;
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    background-color: var(--clr-white);
+    z-index: 10;
+    width: 100%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.navbar .logo {
+    flex-grow: 1;
+    display: flex;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 20px;
+    transition: .4s;
+}
+
+.open-menu, .close-menu {
+    font-size: var(--fs-title);
+    cursor: pointer;
+}
+
+.close-menu {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+.navigation-links, .navigation-user {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 20px;
+}
+
+.navigation-links li {
+    transition: transform .4s;
+}
+
+.navbar .logo img {
+    height: 40px;
+    margin-right: 20px;
+    filter: drop-shadow(1px 5px 0 #ffe2e1)
+}
+
+.navbar .logo a {
+    display: inline-flex;
+    align-items: center;
+    /*text-transform: uppercase;*/
+    font-weight: 600;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-very-big-title);
+    line-height: 1em;
+    color: var(--clr-dark-grey);
+    word-break: keep-all;
+    text-shadow: 3px 3px 0 #f3f4f6;
+}
+
+.navbar .logo a span:nth-child(1) {
+  color: var(--clr-yellow);
+}
+
+.navbar .logo a span:nth-child(2) {
+  color: var(--clr-blue);
+}
+
+.navbar .logo a span:nth-child(3) {
+  color: var(--clr-pink);
+}
+
+.navbar-manager {
+    background-color: var(--clr-very-dark-grey);
+    color: var(--clr-white);
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.navbar-manager ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+}
+
+.navbar-manager a {
+    color: var(--clr-white);
+}
+
+.navbar-notification {
+    color: var(--clr-white);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+}

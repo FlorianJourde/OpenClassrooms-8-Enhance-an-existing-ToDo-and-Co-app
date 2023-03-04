@@ -1,0 +1,42 @@
+:root {
+  --clr-very-light-blue: #f3f4f6;
+  --clr-very-light-yellow: #fff5ca;
+  --clr-yellow: #fec957;
+  --clr-dark-yellow: #9a782c;
+  --clr-very-dark-yellow: #785c1e;
+  --clr-very-light-pink: #ffe2e1;
+  --clr-pink: #fe746e;
+  --clr-dark-pink: #a8433f;
+  --clr-very-dark-pink: #822a27;
+  --clr-blue: #6aa5ff;
+  --clr-dark-blue: #1a54b5;
+  --clr-very-dark-blue: #2b2950;
+  --clr-white: white;
+  --clr-black: black;
+  --clr-light-grey: #ccc;
+  --clr-very-light-grey: #eee;
+  --clr-grey: #74818a;
+  --clr-dark-grey: #334049;
+  --clr-very-dark-grey: #232b31;
+  --clr-transparent-grey: hsla(0, 0%, 0%, 0.25);
+  --clr-transparent-black: hsla(0, 0%, 0%, 0.5);
+  --clr-transparent: hsla(0, 0%, 0%, 0);
+  --ff-primary: Poppins, sans-serif;
+  --ff-secondary: Caveat Brush, sans-serif;
+  /*--ff-tertiary: Flow Circular, sans-serif;*/
+  --fs-very-big-title: 60px;
+  --fs-big-title: 40px;
+  --fs-title: 30px;
+  --fs-small-title: 24px;
+  --fs-big-text: 20px;
+  --fs-regular-text: 16px;
+  --fs-small-text: 12px;
+  --fw-bold: 600;
+  --fw-regular: 500;
+  --fw-thin: 400;
+  --bs-primary: 0 10px 10px #00000005;
+  --bs-secondary: 0 10px 20px #00000010;
+  --br-primary: 10px;
+  --br-secondary: 25px;
+  --br-tertiary: 50px;
+}

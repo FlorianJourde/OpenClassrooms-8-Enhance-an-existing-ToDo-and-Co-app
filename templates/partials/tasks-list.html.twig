@@ -1,0 +1,31 @@
+{% for task in tasks %}
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                {% if task.isDone %}<span class="glyphicon glyphicon-ok"></span>{% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}
+            </h4>
+            <h4><a href="{{ path('app_task_edit', {'id' : task.id }) }}">{{ task.title }}</a></h4>
+            <p>{{ task.content | raw }}</p>
+            {%  if task.author is null %}
+                <p>Utilisateur inconnu</p>
+            {% else %}
+                {#                        {{ dump(task.author.userIdentifier) }}#}
+                <p>{{ task.author.userIdentifier }}</p>
+            {% endif %}
+        </div>
+        <div>
+            <form action="{{ path('app_task_toggle', {'id' : task.id }) }}">
+                <button class="btn btn-success btn-sm pull-right">
+                    {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
+                </button>
+            </form>
+            <form action="{{ path('app_task_delete', {'id' : task.id }) }}">
+                <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            Il n'y a pas encore de tâche enregistrée. <a href="{{ path('app_task_create') }}" class="btn btn-warning pull-right">Créer une tâche</a>
+        </div>
+{% endfor %}

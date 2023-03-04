@@ -1,0 +1,21 @@
+
+{#<div class="row">#}
+{#    <div class="col-md-12">#}
+<div class="wrapper">
+    {% for flash_message in app.session.flashBag.get('success') %}
+        <div class="alert alert-success" role="alert">
+            <strong>Superbe !</strong> {{ flash_message }}
+        </div>
+    {% endfor %}
+
+    {% for flash_message in app.session.flashBag.get('error') %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Oops !</strong> {{ flash_message }}
+        </div>
+    {% endfor %}
+
+    {% block header_title %}{% endblock %}
+    {% block header_img %}<img class="slide-image" src="{{ asset('img/todo-and-co-illustration.png') }}" alt="todo list">{% endblock %}
+</div>
+{#    </div>#}
+{#</div>#}

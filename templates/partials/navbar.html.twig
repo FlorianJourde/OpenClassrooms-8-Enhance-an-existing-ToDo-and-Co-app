@@ -1,46 +1,62 @@
+<div class="navbar">
+    <div class="wrapper">
+        <div class="logo">
+            <a href="{{ path('homepage') }}">
+                <img src="{{ asset('img/todo-and-co-logo.svg') }}" alt="ToDo & Co logo" />
+                <a class="navbar-brand" href="{{ path('homepage') }}"><span>ToDo</span>&nbsp;<span>&</span>&nbsp;<span>Co</span></a>
+            </a>
+        </div>
+        <div class="menu">
+            <ul class="navigation-user">
+                <a href="{{ path('user_create') }}" class="button-secondary button-dark-blue">Créer un utilisateur</a>
+                <a href="{{ path('user_list') }}" class="button-secondary button-dark-blue">Liste des utilisateurs</a>
 
-<nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
+                {% if app.user %}
+                    <a href="{{ path('app_logout') }}" class="button-primary button-dark-blue">Se déconnecter</a>
+                {% endif %}
+
+                {% if not app.user and 'login' != app.request.attributes.get('_route') %}
+                    <a href="{{ path('app_login') }}" class="button-primary button-dark-blue">Se connecter</a>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{#<nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">#}
+{#    <div class="container">#}
+{#        <div class="row">#}
+{#            <div class="col-lg-6">#}
 
     {#            <div class="container">#}
     {#                <div class="row">#}
     {#                    <div class="navbar-header">#}
-                            <a class="navbar-brand" href="{{ path('homepage') }}">To Do List app</a>
-
-                            <img src="{{ asset('img/Logo_OpenClassrooms.png') }}" alt="OpenClassrooms" />
     {#                    </div>#}
-            </div>
     {#                </div>#}
     {#            </div>#}
 
-                <div class="col-lg-6">
-                    <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
-                    <a href="{{ path('user_list') }}" class="btn btn-info btn-primary">Liste des utilisateurs</a>
-
-                    {% if app.user %}
-                        <a href="{{ path('app_logout') }}" class="pull-right btn btn-danger">Se déconnecter</a>
-                    {% endif %}
-
-                    {% if not app.user and 'login' != app.request.attributes.get('_route') %}
-                        <a href="{{ path('app_login') }}" class="btn btn-success">Se connecter</a>
-                    {% endif %}
-                </div>
+{#                <div class="col-lg-6">#}
+{#                </div>#}
     {#        </nav>#}
-        </div>
-    </div>
-</nav>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6">
-            <a href="{{ path('app_task_create') }}" class="btn btn-success">Créer une nouvelle tâche</a>
-            <a href="{{ path('app_task_list') }}" class="btn btn-primary">Toutes les tâches</a>
-            <a href="{{ path('app_tasks_todo') }}" class="btn btn-secondary">À faire</a>
-            <a href="{{ path('app_tasks_done') }}" class="btn btn-secondary">Tâches terminées</a>
-        </div>
+{#        </div>#}
+{#    </div>#}
+{#</nav>#}
+{#<div class="container">#}
+{#    <div class="row">#}
+{#        <div class="col-lg-6">#}
+<div class="actions tasks-management margin-bottom-50 margin-top-20">
+    <div class="wrapper">
+        <ul>
+            <li><a href="{{ path('app_task_create') }}" class="button-secondary">Créer une nouvelle tâche</a></li>
+            <li><a href="{{ path('app_task_list') }}" class="button-secondary">Toutes les tâches</a></li>
+            <li><a href="{{ path('app_tasks_todo') }}" class="button-secondary">À faire</a></li>
+            <li><a href="{{ path('app_tasks_done') }}" class="button-secondary">Tâches terminées</a></li>
+        </ul>
     </div>
 </div>
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
 
 {#<div class="row">#}
 {#</div>#}
