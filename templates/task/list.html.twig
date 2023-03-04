@@ -15,7 +15,7 @@
                         {% if task.isDone %}<span class="glyphicon glyphicon-ok"></span>{% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}
                     </h4>
                     <h4><a href="{{ path('app_task_edit', {'id' : task.id }) }}">{{ task.title }}</a></h4>
-                    <p>{{ task.content }}</p>
+                    <p>{{ task.content | raw }}</p>
                     {%  if task.author is null %}
                         <p>Utilisateur inconnu</p>
                     {% else %}
