@@ -63,9 +63,12 @@
                             {% endif %}
                         </div>
 {#                        <div class="edit-picto">#}
+
+                        {% if is_granted('ROLE_USER') %}
                             <a class="edit-picto" href="{{ path('app_task_edit', {'id' : task.id }) }}">
                                 <img src="{{ asset('img/pen.svg') }}" alt="">
                             </a>
+                        {% endif %}
 {#                        </div>#}
 
 {#                        <img src="{{ asset('img/todo-and-co-cross.svg') }}" alt="">#}
