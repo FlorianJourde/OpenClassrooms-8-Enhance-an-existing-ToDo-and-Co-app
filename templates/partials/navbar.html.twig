@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="navbar margin-bottom-20">
     <div class="wrapper">
         <div class="logo">
             <a href="{{ path('homepage') }}">
@@ -8,15 +8,21 @@
         </div>
         <div class="menu">
             <ul class="navigation-user">
-                <a href="{{ path('user_create') }}" class="button-secondary button-dark-blue">Créer un utilisateur</a>
-                <a href="{{ path('user_list') }}" class="button-secondary button-dark-blue">Liste des utilisateurs</a>
+
+                {% if is_granted('ROLE_USER') %}
+                    <li><p>Bonjour <span style="color: var(--clr-blue);">{{ app.user.userIdentifier }}</span> !</p></li>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ path('user_create') }}" class="button-secondary button-dark-blue">Créer un utilisateur</a></li>
+                    <li><a href="{{ path('user_list') }}" class="button-secondary button-dark-blue">Liste des utilisateurs</a></li>
+                {% endif %}
 
                 {% if app.user %}
-                    <a href="{{ path('app_logout') }}" class="button-primary button-dark-blue">Se déconnecter</a>
+                    <li><a href="{{ path('app_logout') }}" class="button-primary button-dark-blue">Se déconnecter</a></li>
                 {% endif %}
 
                 {% if not app.user and 'login' != app.request.attributes.get('_route') %}
-                    <a href="{{ path('app_login') }}" class="button-primary button-dark-blue">Se connecter</a>
+                    <li><a href="{{ path('app_login') }}" class="button-primary button-dark-blue">Se connecter</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -44,16 +50,18 @@
 {#<div class="container">#}
 {#    <div class="row">#}
 {#        <div class="col-lg-6">#}
-<div class="actions tasks-management margin-bottom-50 margin-top-20">
-    <div class="wrapper">
-        <ul>
-            <li><a href="{{ path('app_task_create') }}" class="button-secondary">Créer une nouvelle tâche</a></li>
-            <li><a href="{{ path('app_task_list') }}" class="button-secondary">Toutes les tâches</a></li>
-            <li><a href="{{ path('app_tasks_todo') }}" class="button-secondary">À faire</a></li>
-            <li><a href="{{ path('app_tasks_done') }}" class="button-secondary">Tâches terminées</a></li>
-        </ul>
+    <div class="actions tasks-management margin-bottom-50">
+        <div class="wrapper">
+            <ul>
+                {% if is_granted('ROLE_USER') %}
+                    <li><a href="{{ path('app_task_create') }}" class="button-secondary button-dark-yellow">Créer une nouvelle tâche</a></li>
+                {% endif %}
+                <li><a href="{{ path('app_task_list') }}" class="button-secondary button-dark-yellow">Toutes les tâches</a></li>
+                <li><a href="{{ path('app_tasks_todo') }}" class="button-secondary button-dark-yellow">Tâches à réaliser</a></li>
+                <li><a href="{{ path('app_tasks_done') }}" class="button-secondary button-dark-yellow">Tâches terminées</a></li>
+            </ul>
+        </div>
     </div>
-</div>
 {#        </div>#}
 {#    </div>#}
 {#</div>#}

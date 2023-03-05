@@ -1,20 +1,20 @@
-* {
-    scrollbar-width: auto;
-    scrollbar-color: #232b31 #ffffff;
-    scrollbar-width: thin;
-}
+/** {*/
+/*    scrollbar-width: auto;*/
+/*    scrollbar-color: #232b31 #ffffff;*/
+/*    scrollbar-width: thin;*/
+/*}*/
 
-*::-webkit-scrollbar {
-    width: 8px;
-}
+/**::-webkit-scrollbar {*/
+/*    width: 8px;*/
+/*}*/
 
-*::-webkit-scrollbar-track {
-    background: #ffffff;
-}
+/**::-webkit-scrollbar-track {*/
+/*    background: #ffffff;*/
+/*}*/
 
-*::-webkit-scrollbar-thumb {
-    background-color: var(--clr-very-dark-grey);
-}
+/**::-webkit-scrollbar-thumb {*/
+/*    background-color: var(--clr-very-dark-grey);*/
+/*}*/
 
 ::selection {
     background-color: var(--clr-yellow);
@@ -62,9 +62,14 @@ textarea {
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*gap: 40px;*/
+}
+
+form input, form textarea {
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 body {

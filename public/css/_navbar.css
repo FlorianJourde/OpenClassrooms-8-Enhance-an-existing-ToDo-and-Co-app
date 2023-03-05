@@ -60,6 +60,7 @@ nav {
     flex-wrap: wrap;
     align-items: center;
     gap: 10px 20px;
+  justify-content: center;
 }
 
 .navigation-links li {
@@ -77,8 +78,8 @@ nav {
     align-items: center;
     /*text-transform: uppercase;*/
     font-weight: 600;
-    font-family: var(--ff-secondary);
-    font-size: var(--fs-very-big-title);
+    font-family: var(--ff-primary);
+    font-size: var(--fs-big-title);
     line-height: 1em;
     color: var(--clr-dark-grey);
     word-break: keep-all;

@@ -20,7 +20,7 @@ class TaskController extends AbstractController
      */
     public function listAction(TaskRepository $taskRepository)
     {
-        $tasks = $taskRepository->findAll();
+        $tasks = array_reverse($taskRepository->findAll());
 
         return $this->render('task/list.html.twig', ['tasks' => $tasks]);
     }

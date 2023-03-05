@@ -1,21 +1,53 @@
+{% if app.request.requestUri is same as '/' %}
+    {% set banner_title = 'Bienvenue sur <span style="color: var(--clr-blue);">ToDo & Co</span>, l\'application vous permettant de gérer l\'ensemble de vos tâches <span style="color: var(--clr-blue);">sans effort !</span>' %}
+    {% set isWide = 'wide' %}
+{% endif %}
 
-{#<div class="row">#}
-{#    <div class="col-md-12">#}
+{% if app.session.flashBag.get is defined %}
+    <div class="wrapper">
+        {% for flash_message in app.session.flashBag.get('success') %}
+            <div class="alert alert-success" role="alert">
+                <strong>Superbe !</strong> {{ flash_message }}
+            </div>
+        {% endfor %}
+
+        {% for flash_message in app.session.flashBag.get('error') %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Oops !</strong> {{ flash_message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+
 <div class="wrapper">
-    {% for flash_message in app.session.flashBag.get('success') %}
-        <div class="alert alert-success" role="alert">
-            <strong>Superbe !</strong> {{ flash_message }}
-        </div>
-    {% endfor %}
+    <div class="banner {{ isWide is defined ? isWide : '' }}" style="background-image: url({{ asset('img/todo-and-co-illustration.png') }})">
 
-    {% for flash_message in app.session.flashBag.get('error') %}
-        <div class="alert alert-danger" role="alert">
-            <strong>Oops !</strong> {{ flash_message }}
-        </div>
-    {% endfor %}
+{#        {{ dump(app.request.requestUri) }}#}
+{#        {% set url = app.request.url %}#}
 
-    {% block header_title %}{% endblock %}
-    {% block header_img %}<img class="slide-image" src="{{ asset('img/todo-and-co-illustration.png') }}" alt="todo list">{% endblock %}
+{#        {% if url == "/" %}#}
+{#            homepage#}
+{#        {% endif %}#}
+
+        <h1>
+{#            {% if app.request.requestUri is same as '/' %}#}
+{#                Bienvenue sur <span style="color: var(--clr-blue);">ToDo & Co</span>, l'application vous permettant de gérer l'ensemble de vos tâches <span style="color: var(--clr-blue);">sans effort !</span>#}
+{#            {% else %}#}
+                {{ banner_title | raw }}
+{#            {% endif %}#}
+
+
+{#            {% if banner_title is not defined %}#}
+{#                Titre de la page#}
+{#            {% else %}#}
+{#    #}{#            Bannière#}
+{#                {{ banner_title }}#}
+{#            {% endif %}#}
+        </h1>
+{#        {{ header_title }}#}
+
+        {% block header_title %}{% endblock %}
+        {#            {% block header_img %}<img class="slide-image" src="{{ asset('img/todo-and-co-illustration.png') }}" alt="todo list">{% endblock %}#}
+    </div>
 </div>
-{#    </div>#}
-{#</div>#}

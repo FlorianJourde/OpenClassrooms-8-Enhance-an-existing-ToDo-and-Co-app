@@ -39,7 +39,7 @@ class AppFixtures extends Fixture
             $users[] = $user;
         }
 
-        $tasksTitle = ['Réunion 03/23', 'Métro', 'Numéro de téléphone', 'Liste de courses', '5/28', 'Livres à lire', 'Musique', 'Site web', 'Rappels', 'Médecin'];
+        $tasksTitle = ['Réunion 17/03', 'Métro', 'Numéro de téléphone', 'Liste de courses', '5 mai 2023', 'Livres à lire', 'Musique', 'Site web', 'Rappels', 'Médecin', '29/04'];
         $tasksContent = [
             '06 89 70 46 99 </br> 05 55 03 42 29 </br> 04 56 23 32 17',
             'Aniversaire de Grégory',

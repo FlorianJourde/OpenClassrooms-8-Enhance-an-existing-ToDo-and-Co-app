@@ -54,6 +54,7 @@ class TaskRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('t')
             ->setMaxResults($value)
+            ->orderBy('t.createdAt', 'DESC')
             ->getQuery()
             ->getResult()
             ;

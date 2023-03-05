@@ -1,3 +1,9 @@
+{% if is_granted('ROLE_USER') %}
+    <div class="actions margin-top-50">
+        <a href="{{ path('app_task_create') }}" class="button-primary button-big button-blue">Créer une tâche</a>
+    </div>
+{% endif %}
+
 <div class="tasks-grid margin-top-50">
     {% set nextWide = null %}
     {% set bigWideGap = false %}
@@ -56,6 +62,11 @@
                                 <img src="{{ asset('img/todo-and-co-cross.svg') }}" alt="">
                             {% endif %}
                         </div>
+{#                        <div class="edit-picto">#}
+                            <a class="edit-picto" href="{{ path('app_task_edit', {'id' : task.id }) }}">
+                                <img src="{{ asset('img/pen.svg') }}" alt="">
+                            </a>
+{#                        </div>#}
 
 {#                        <img src="{{ asset('img/todo-and-co-cross.svg') }}" alt="">#}
 {#                        <span class="glyphicon glyphicon-remove"></span>#}
@@ -69,16 +80,18 @@
                         <p class="author">{{ task.author.userIdentifier }}</p>
                     {% endif %}
                 </div>
-                <div class="actions">
-                    <form action="{{ path('app_task_toggle', {'id' : task.id }) }}">
-                        <button class="button-secondary button-dark-blue {#btn btn-success btn-sm pull-right#}">
-                            {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
-                        </button>
-                    </form>
-                    <form action="{{ path('app_task_delete', {'id' : task.id }) }}">
-                        <button class="button-primary button-transparent-grey {#btn btn-danger btn-sm pull-right#}">Supprimer</button>
-                    </form>
-                </div>
+                {% if is_granted('ROLE_USER') %}
+                    <div class="actions">
+                        <form action="{{ path('app_task_toggle', {'id' : task.id }) }}">
+                            <button class="button-secondary button-dark-blue {#btn btn-success btn-sm pull-right#}">
+                                {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
+                            </button>
+                        </form>
+                        <form action="{{ path('app_task_delete', {'id' : task.id }) }}">
+                            <button class="button-primary button-dark-grey {#btn btn-danger btn-sm pull-right#}">Supprimer</button>
+                        </form>
+                    </div>
+                {% endif %}
             </div>
         {% else %}
             <div class="alert alert-warning" role="alert">
