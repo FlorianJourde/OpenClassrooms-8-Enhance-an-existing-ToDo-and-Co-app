@@ -72,7 +72,7 @@
   }
 
   .navbar .hello-user {
-    display: none;
+    /*display: none;*/
   }
 
   .table th, .table td {
@@ -82,7 +82,6 @@
   .banner.wide {
     /*background-position: left 150px top 75%;*/
   }
-
 
   .banner h1 {
     padding: 50px;
@@ -104,169 +103,8 @@
     flex-direction: column;
   }
 
-  /*input, textarea, ::-webkit-file-upload-button {*/
-  /*  padding: 10px 15px;*/
-  /*}*/
-
-  /*.button-primary, .button-secondary, form button[type=submit] {*/
-  /*  padding: 6px 12px;*/
-  /*}*/
-
-  /*.actions {*/
-  /*  gap: 10px;*/
-  /*}*/
-
-  /*.navbar .logo img {*/
-  /*  height: 30px;*/
-  /*  margin-right: 10px;*/
-  /*}*/
-
-  /*.navbar {*/
-  /*  gap: 20px;*/
-  /*}*/
-
-  /*.navbar .logo a {*/
-  /*  font-size: var(--fs-small-title);*/
-  /*}*/
-
-  /*.hide-on-mobile {*/
-  /*  display: none;*/
-  /*}*/
-
-  /*.banner {*/
-  /*  padding-top: 120px;*/
-  /*  padding-bottom: 120px;*/
-  /*}*/
-
-  /*.banner.very-wide, .banner.wide:has(.actions) {*/
-  /*  padding-top: 120px;*/
-  /*  padding-bottom: 120px;*/
-  /*}*/
-
-  /*.section-title::before {*/
-  /*  width: 150px;*/
-  /*  top: -30px;*/
-  /*}*/
-
-  /*.background-image {*/
-  /*  background-position: bottom 0 right -50px;*/
-  /*}*/
-
-  /*section.archive, .comments-section, .register, .login {*/
-  /*  background-size: 400px;*/
-  /*  background-position: bottom 0 right -50px;*/
-  /*}*/
-
-  /*.section-spacing {*/
-  /*  padding-top: 80px;*/
-  /*  padding-bottom: 80px;*/
-  /*}*/
-
-  /*.navbar {*/
-  /*  padding-bottom: 10px;*/
-  /*  padding-top: 10px;*/
-  /*}*/
-
-  /*.banner-decoration {*/
-  /*  width: 400px;*/
-  /*  top: 50px;*/
-  /*  left: -100px;*/
-  /*}*/
-
-  /*.navigation-links, .navigation-user {*/
-  /*  gap: 10px;*/
-  /*}*/
-
-  /*.navigation-user span {*/
-  /*  display: none;*/
-  /*}*/
-
-  /*.tricks, .images, .specificities, .edit-section .specificities {*/
-  /*  grid-template-columns: repeat(1, 1fr);*/
-  /*}*/
-
-  /*.edit-section .images {*/
-  /*  grid-template-columns: repeat(2, 1fr);*/
-  /*}*/
-
-  /*#modal-image-container {*/
-  /*  padding: 20px;*/
-  /*}*/
-
-  /*.images {*/
-  /*  gap: 20px;*/
-  /*}*/
-
-  /*.tricks {*/
-  /*  gap: 50px;*/
-  /*}*/
-
-  /*.trick, .images .image {*/
-  /*  min-height: 200px;*/
-  /*}*/
-
-  /*.specificities {*/
-  /*  gap: 20px;*/
-  /*  grid-auto-rows: unset;*/
-  /*}*/
-
-  /*.specificity {*/
-  /*  gap: 30px;*/
-  /*  padding: 30px;*/
-  /*}*/
-
-  /*.introduction, .images-section {*/
-  /*  background-size: 600px;*/
-  /*}*/
-
-  /*#scroll-to-next-section {*/
-  /*  margin-right: auto;*/
-  /*  margin-left: auto;*/
-  /*}*/
-
-  /*footer .bottom-section {*/
-  /*  justify-content: center;*/
-  /*}*/
-
-  /*.banner.wide {*/
-  /*  padding-top: 250px;*/
-  /*}*/
-
-  /*.banner.very-wide, .banner.wide:has(.actions) {*/
-  /*  gap: 50px;*/
-  /*}*/
-
-  /*.video-section iframe {*/
-  /*  height: 300px;*/
-  /*}*/
-
-  /*.comments {*/
-  /*  gap: 20px;*/
-  /*}*/
-
-  /*.comment {*/
-  /*  padding: 30px;*/
-  /*}*/
-
-  /*.actions.comments-pagination {*/
-  /*  margin-top: 8px;*/
-  /*}*/
-
-  /*.comments-pagination #load-previous-comments {*/
-  /*  right: 50px;*/
-  /*}*/
-
-  /*.pagination-number {*/
-  /*  margin-top: 42px;*/
-  /*}*/
-
-  /*.actions-section .button-primary, .actions-section .button-secondary, .actions-section form button[type=submit] {*/
-  /*  font-size: var(--fs-regular-text);*/
-  /*}*/
-
-  /*#top-page-button {*/
-  /*  width: 35px;*/
-  /*  height: 35px;*/
-  /*  font-size: var(--fs-regular-text);*/
-  /*}*/
+  form input, form textarea {
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
 }
