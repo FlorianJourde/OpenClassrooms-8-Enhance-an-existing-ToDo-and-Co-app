@@ -16,6 +16,7 @@
   .tasks-grid {
     grid-template-columns: 1fr 1fr;
   }
+
   .navbar .logo, .navbar .menu {
     justify-content: center;
     width: 100%;
@@ -61,6 +62,19 @@
     --fs-regular-text: 14px;
   }
 
+  .navbar .logo img {
+    height: 25px;
+  }
+
+  .navbar {
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .navbar .hello-user {
+    display: none;
+  }
+
   .table th, .table td {
     padding: 10px;
   }
@@ -84,6 +98,10 @@
 
   .tasks-grid .tall {
     grid-row: unset;
+  }
+
+  .actions ul, .alert {
+    flex-direction: column;
   }
 
   /*input, textarea, ::-webkit-file-upload-button {*/

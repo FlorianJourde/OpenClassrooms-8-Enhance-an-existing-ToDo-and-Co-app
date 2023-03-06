@@ -22,7 +22,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 30px;
+    gap: 10px 30px;
     background-color: var(--clr-white);
     z-index: 10;
     width: 100%;
@@ -47,12 +47,6 @@ nav {
 .open-menu, .close-menu {
     font-size: var(--fs-title);
     cursor: pointer;
-}
-
-.close-menu {
-    position: absolute;
-    top: 25px;
-    right: 25px;
 }
 
 .navigation-links, .navigation-user {

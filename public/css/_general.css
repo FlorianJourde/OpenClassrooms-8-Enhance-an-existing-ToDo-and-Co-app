@@ -76,8 +76,17 @@
   /*justify-content: center;*/
 }
 
+.alert.inline {
+  flex-direction: row;
+  gap: 5px;
+}
+
 .alert.error {
   background-color: var(--clr-very-light-pink);
+}
+
+.alert.info {
+  background-color: var(--clr-very-light-yellow);
 }
 
 /*.tasks-management a {*/

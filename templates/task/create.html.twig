@@ -1,19 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Créer une nouvelle tâche{% endblock %}
+
 {% block body %}
+
     <div class="create-task-section margin-top-50">
         <div class="wrapper wrapper-small">
-    {#    <div class="row">#}
+
             {{ form_start(form, {'action' : path('app_task_create')}) }}
-{#                {{ form_widget(form) }}#}
                 {{ form_row(form.title) }}
                 {{ form_row(form.content) }}
-                <button type="submit" class="button-primary button-blue button-big{# btn btn-success#}">Ajouter</button>
-
+                <button type="submit" class="button-primary button-blue button-big">Ajouter</button>
             {{ form_end(form) }}
 
-            <a href="{{ path('app_task_list') }}" class="button-secondary button-dark-blue margin-top-20 {# button-blue button-big#}">Retour à la liste des tâches</a>
-    {#    </div>#}
+            <a href="{{ path('app_task_list') }}" class="button-secondary button-dark-blue margin-top-20">Retour à la liste des tâches</a>
         </div>
     </div>
+
 {% endblock %}

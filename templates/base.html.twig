@@ -1,104 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+    <title>{% block title %}Accueil{% endblock %} | ToDo & Co</title>
+</head>
 
-        <title>{% block title %}Accueil{% endblock %} | ToDo & Co</title>
-
-        <!-- Custom CSS -->
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>-->
-{#        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>#}
-{#        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>#}
-        <!--[endif]-->
-    </head>
-
-    <body>
-        <!-- Page Content -->
-
-{#            {% if user is defined %}#}
-{#                {% set user = user %}#}
-{#                {{ dump(app.user.userIdentifier) }}#}
-{#                {{ app.user.username }}#}
-{#                {{ dump(app.request.attributes) }}#}
-{#            {% endif %}#}
-            {% include 'partials/navbar.html.twig' %}
-{#            <div class="row">#}
-{#                <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>#}
-
-{#                {% if app.user %}#}
-{#                <a href="{{ path('logout') }}" class="pull-right btn btn-danger">Se déconnecter</a>#}
-{#                {% endif %}#}
-
-{#                {% if not app.user and 'login' != app.request.attributes.get('_route') %}#}
-{#                <a href="{{ path('login') }}" class="btn btn-success">Se connecter</a>#}
-{#                {% endif %}#}
-{#            </div>#}
-{#        {% set header_title = 'TEST' %}#}
-
-            {% include 'partials/banner.html.twig' with { banner_title: block('title') } %}
-
-{#        <div class="wrapper">#}
-{#            <div class="banner wide" style="background-image: url({{ asset('img/todo-and-co-illustration.png') }})">#}
-{#                {% for flash_message in app.session.flashBag.get('success') %}#}
-{#                    <div class="alert alert-success" role="alert">#}
-{#                        <strong>Superbe !</strong> {{ flash_message }}#}
-{#                    </div>#}
-{#                {% endfor %}#}
-
-{#                {% for flash_message in app.session.flashBag.get('error') %}#}
-{#                    <div class="alert alert-danger" role="alert">#}
-{#                        <strong>Oops !</strong> {{ flash_message }}#}
-{#                    </div>#}
-{#                {% endfor %}#}
-
-{#                {% block header_title %}{% endblock %}#}
-{#    #}{#            {% block header_img %}<img class="slide-image" src="{{ asset('img/todo-and-co-illustration.png') }}" alt="todo list">{% endblock %}#}
-{#            </div>#}
-{#        </div>#}
-
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                <div class="col-md-12">#}
-{#                    {% for flash_message in app.session.flashBag.get('success') %}#}
-{#                        <div class="alert alert-success" role="alert">#}
-{#                            <strong>Superbe !</strong> {{ flash_message }}#}
-{#                        </div>#}
-{#                    {% endfor %}#}
-
-{#                    {% for flash_message in app.session.flashBag.get('error') %}#}
-{#                        <div class="alert alert-danger" role="alert">#}
-{#                            <strong>Oops !</strong> {{ flash_message }}#}
-{#                        </div>#}
-{#                    {% endfor %}#}
-
-{#                    {% block header_title %}{% endblock %}#}
-{#                    {% block header_img %}<img class="slide-image" src="{{ asset('img/todo-and-co-illustration.png') }}" alt="todo list">{% endblock %}#}
-{#                </div>#}
-{#            </div>#}
-
-{#            <br />#}
-
-{#            <div class="row">#}
-{#                <div class="col-md-12">#}
-                    {% block body %}{% endblock %}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-
+<body>
+    {% include 'partials/navbar.html.twig' %}
+    {% include 'partials/banner.html.twig' with { banner_title: block('title') } %}
+    {% block body %}{% endblock %}
     {% include 'partials/footer.html.twig' %}
-
-        <script src="{{ asset('js/custom.js') }}"></script>
-{#        <script src="{{ asset('js/jquery.js') }}"></script>#}
-{#        <script src="{{ asset('js/bootstrap.min.js') }}"></script>#}
-    </body>
+    <script src="{{ asset('js/custom.js') }}"></script>
+</body>
 </html>

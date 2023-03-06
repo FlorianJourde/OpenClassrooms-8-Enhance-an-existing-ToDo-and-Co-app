@@ -6,48 +6,22 @@
 {% if app.session.flashBag.get is defined %}
     <div class="wrapper">
         {% for flash_message in app.session.flashBag.get('success') %}
-            <div class="alert alert-success" role="alert">
+            <div class="alert" role="alert">
                 <strong>Superbe !</strong> {{ flash_message }}
             </div>
         {% endfor %}
 
         {% for flash_message in app.session.flashBag.get('error') %}
-            <div class="alert alert-danger" role="alert">
-                <strong>Oops !</strong> {{ flash_message }}
+            <div class="alert error" role="alert">
+                <strong>Oups !</strong> {{ flash_message }}
             </div>
         {% endfor %}
     </div>
 {% endif %}
 
-
 <div class="wrapper">
     <div class="banner {{ isWide is defined ? isWide : '' }}" style="background-image: url({{ asset('img/todo-and-co-illustration.png') }})">
-
-{#        {{ dump(app.request.requestUri) }}#}
-{#        {% set url = app.request.url %}#}
-
-{#        {% if url == "/" %}#}
-{#            homepage#}
-{#        {% endif %}#}
-
-        <h1>
-{#            {% if app.request.requestUri is same as '/' %}#}
-{#                Bienvenue sur <span style="color: var(--clr-blue);">ToDo & Co</span>, l'application vous permettant de gérer l'ensemble de vos tâches <span style="color: var(--clr-blue);">sans effort !</span>#}
-{#            {% else %}#}
-                {{ banner_title | raw }}
-{#            {% endif %}#}
-
-
-{#            {% if banner_title is not defined %}#}
-{#                Titre de la page#}
-{#            {% else %}#}
-{#    #}{#            Bannière#}
-{#                {{ banner_title }}#}
-{#            {% endif %}#}
-        </h1>
-{#        {{ header_title }}#}
-
+        <h1>{{ banner_title | raw }}</h1>
         {% block header_title %}{% endblock %}
-        {#            {% block header_img %}<img class="slide-image" src="{{ asset('img/todo-and-co-illustration.png') }}" alt="todo list">{% endblock %}#}
     </div>
 </div>
