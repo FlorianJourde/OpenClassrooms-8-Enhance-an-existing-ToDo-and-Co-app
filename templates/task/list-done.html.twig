@@ -2,12 +2,8 @@
 
 {% block title %}Tâches terminées{% endblock %}
 
-{% block header_img %}<img class="slide-image" src="{{ asset('img/todolist_content.jpg') }}" alt="todo list">{% endblock %}
-
 {% block body %}
 
-    <div class="wrapper">
-        {% include 'partials/tasks-list.html.twig' %}
-    </div>
+    {% include 'partials/tasks-list.html.twig' %}
 
 {% endblock %}

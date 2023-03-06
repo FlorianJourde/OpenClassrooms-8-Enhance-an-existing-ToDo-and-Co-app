@@ -2,11 +2,12 @@
 
 {% block body %}
 
-    <div class="wrapper">
-        {% include 'partials/tasks-list.html.twig' %}
-        <div class="actions margin-top-50">
+    {% include 'partials/tasks-list.html.twig' %}
+
+    <section class="add-task-section">
+        <div class="wrapper actions margin-top-50">
             <a href="{{ path('app_task_list') }}" class="button-primary button-big button-blue">Voir toutes les tâches</a>
         </div>
-    </div>
+    </section>
 
 {% endblock %}

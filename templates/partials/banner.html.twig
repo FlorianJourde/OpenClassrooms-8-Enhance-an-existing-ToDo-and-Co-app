@@ -25,11 +25,11 @@
 
 {% endif %}
 
-<div class="header-section">
+<section class="header-section">
     <div class="wrapper">
         <div class="banner {{ isWide is defined ? isWide : '' }}" style="background-image: url({{ asset('img/todo-and-co-illustration.png') }})">
             <h1>{{ banner_title | raw }}</h1>
             {% block header_title %}{% endblock %}
         </div>
     </div>
-</div>
+</section>

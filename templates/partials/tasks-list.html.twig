@@ -1,99 +1,110 @@
-{% if is_granted('ROLE_USER') %}
-    <div class="actions margin-top-50">
-        <a href="{{ path('app_task_create') }}" class="button-primary button-big button-blue">Créer une tâche</a>
-    </div>
-{% endif %}
+<main class="tasks-section">
+    <div class="wrapper">
 
-<div class="tasks-grid margin-top-50">
-    {% set nextWide = null %}
-    {% set bigWideGap = false %}
-
-    {% set nextTall = null %}
-    {% set bigTallGap = true %}
-
-    {% for task in tasks %}
-        {% set isWide = '' %}
-        {% set firstWide = 3 %}
-        {% if loop.index is same as firstWide %}
-            {% set isWide = 'wide' %}
-            {% set nextWide = loop.index + 4 %}
+        {% if is_granted('ROLE_USER') %}
+            <div class="actions margin-top-50">
+                <a href="{{ path('app_task_create') }}" class="button-primary button-big button-blue">Créer une tâche</a>
+            </div>
         {% endif %}
 
-        {% if loop.index is same as nextWide %}
-            {% set isWide = 'wide' %}
-            {% if bigWideGap is same as true %}
-                {% set nextWide = loop.index + 4 %}
+        {% if tasks is not empty %}
+
+            <div class="tasks-grid margin-top-50">
+
+                {% set nextWide = null %}
                 {% set bigWideGap = false %}
-            {% else %}
-                {% set nextWide = loop.index + 8 %}
-                {% set bigWideGap = true %}
-            {% endif %}
-        {% endif %}
 
-        {% set isTall = '' %}
-        {% set firstTall = 1 %}
-        {% if loop.index is same as firstTall %}
-            {% set isTall = 'tall' %}
-            {% set nextTall = loop.index + 8 %}
-        {% endif %}
-
-        {% if loop.index is same as nextTall %}
-            {% set isTall = 'tall' %}
-            {% if bigTallGap is same as true %}
-                {% set nextTall = loop.index + 4 %}
-                {% set bigTallGap = false %}
-            {% else %}
-                {% set nextTall = loop.index + 8 %}
+                {% set nextTall = null %}
                 {% set bigTallGap = true %}
-            {% endif %}
-        {% endif %}
 
-            <div class="item {{ isWide }} {{ isTall }}" style="background-color: {{ cycle(["var(--clr-very-light-blue)", "var(--clr-very-light-yellow)", "var(--clr-very-light-pink)", "var(--clr-very-light-green)", "var(--clr-very-light-purple)"], loop.index) }};">
-                <div class="caption">
-                        <div class="status-picto">
+                {% for task in tasks %}
+                    {% set isWide = '' %}
+                    {% set firstWide = 3 %}
+                    {% if loop.index is same as firstWide %}
+                        {% set isWide = 'wide' %}
+                        {% set nextWide = loop.index + 4 %}
+                    {% endif %}
 
-                            {% if task.isDone %}
-                                <img src="{{ asset('img/todo-and-co-logo-blue.svg') }}" alt="">
+                    {% if loop.index is same as nextWide %}
+                        {% set isWide = 'wide' %}
+                        {% if bigWideGap is same as true %}
+                            {% set nextWide = loop.index + 4 %}
+                            {% set bigWideGap = false %}
+                        {% else %}
+                            {% set nextWide = loop.index + 8 %}
+                            {% set bigWideGap = true %}
+                        {% endif %}
+                    {% endif %}
+
+                    {% set isTall = '' %}
+                    {% set firstTall = 1 %}
+                    {% if loop.index is same as firstTall %}
+                        {% set isTall = 'tall' %}
+                        {% set nextTall = loop.index + 8 %}
+                    {% endif %}
+
+                    {% if loop.index is same as nextTall %}
+                        {% set isTall = 'tall' %}
+                        {% if bigTallGap is same as true %}
+                            {% set nextTall = loop.index + 4 %}
+                            {% set bigTallGap = false %}
+                        {% else %}
+                            {% set nextTall = loop.index + 8 %}
+                            {% set bigTallGap = true %}
+                        {% endif %}
+                    {% endif %}
+
+                    <div class="item {{ isWide }} {{ isTall }}" style="background-color: {{ cycle(["var(--clr-very-light-blue)", "var(--clr-very-light-yellow)", "var(--clr-very-light-pink)", "var(--clr-very-light-green)", "var(--clr-very-light-purple)"], loop.index) }};">
+                        <div class="caption">
+                                <div class="status-picto">
+
+                                    {% if task.isDone %}
+                                        <img src="{{ asset('img/todo-and-co-logo-blue.svg') }}" alt="">
+                                    {% else %}
+                                        <img src="{{ asset('img/todo-and-co-cross.svg') }}" alt="">
+                                    {% endif %}
+
+                                </div>
+
+                                {% if is_granted('ROLE_USER') %}
+                                    <a class="edit-picto" href="{{ path('app_task_edit', {'id' : task.id }) }}">
+                                        <img src="{{ asset('img/pen.svg') }}" alt="">
+                                    </a>
+                                {% endif %}
+
+                            <h4><a href="{{ path('app_task_edit', {'id' : task.id }) }}">{{ task.title }}</a></h4>
+                            <p>{{ task.content | raw }}</p>
+
+                            {%  if task.author is null %}
+                                <p class="author">Utilisateur inconnu</p>
                             {% else %}
-                                <img src="{{ asset('img/todo-and-co-cross.svg') }}" alt="">
+                                <p class="author">{{ task.author.userIdentifier }}</p>
                             {% endif %}
 
                         </div>
 
                         {% if is_granted('ROLE_USER') %}
-                            <a class="edit-picto" href="{{ path('app_task_edit', {'id' : task.id }) }}">
-                                <img src="{{ asset('img/pen.svg') }}" alt="">
-                            </a>
+                            <div class="actions">
+                                <form action="{{ path('app_task_toggle', {'id' : task.id }) }}">
+                                    <button class="button-secondary button-dark-blue">
+                                        {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
+                                    </button>
+                                </form>
+                                <form action="{{ path('app_task_delete', {'id' : task.id }) }}">
+                                    <button class="button-primary button-dark-grey">Supprimer</button>
+                                </form>
+                            </div>
                         {% endif %}
 
-                    <h4><a href="{{ path('app_task_edit', {'id' : task.id }) }}">{{ task.title }}</a></h4>
-                    <p>{{ task.content | raw }}</p>
-
-                    {%  if task.author is null %}
-                        <p class="author">Utilisateur inconnu</p>
-                    {% else %}
-                        <p class="author">{{ task.author.userIdentifier }}</p>
-                    {% endif %}
-
-                </div>
-
-                {% if is_granted('ROLE_USER') %}
-                    <div class="actions">
-                        <form action="{{ path('app_task_toggle', {'id' : task.id }) }}">
-                            <button class="button-secondary button-dark-blue">
-                                {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
-                            </button>
-                        </form>
-                        <form action="{{ path('app_task_delete', {'id' : task.id }) }}">
-                            <button class="button-primary button-dark-grey">Supprimer</button>
-                        </form>
                     </div>
-                {% endif %}
+
+                {% endfor %}
 
             </div>
+
         {% else %}
-            <div class="alert alert-warning" role="alert">
-                Il n'y a pas encore de tâche enregistrée. <a href="{{ path('app_task_create') }}" class="btn btn-warning pull-right">Créer une tâche</a>
-            </div>
-    {% endfor %}
-</div>
+            <div class="alert info margin-top-50" role="alert">Il n'y a pas de tâche enregistrée.</div>
+        {% endif %}
+
+    </div>
+</main>

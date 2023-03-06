@@ -1,3 +1,11 @@
+.icon {
+  width: 20px;
+  height: 20px;
+}
+.icon.white {
+  fill: var(--clr-white);
+}
+
 .margin-top-20 {
   margin-top: 20px;
 }
@@ -60,6 +68,10 @@
   padding: 15px;
   justify-content: center;
   align-items: center;
+}
+
+.users-management.actions ul {
+  background-color: var(--clr-very-light-blue);
 }
 
 .alert {

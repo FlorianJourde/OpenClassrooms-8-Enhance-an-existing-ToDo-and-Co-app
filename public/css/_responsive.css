@@ -10,11 +10,6 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .navbar .logo, .navbar .menu {
-    justify-content: center;
-    width: 100%;
-  }
-
   .banner, .banner.wide {
     align-items: center;
     min-height: unset;
@@ -42,13 +37,20 @@
     --fs-regular-text: 14px;
   }
 
-  .navbar .logo img {
-    height: 25px;
+  .margin-top-50 {
+    margin-top: 40px;
   }
 
-  .navbar {
-    padding-bottom: 10px;
-    padding-top: 10px;
+  .margin-bottom-50 {
+    margin-bottom: 40px;
+  }
+
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .navbar .logo img {
+    height: 25px;
   }
 
   .table th, .table td {
@@ -61,6 +63,7 @@
 
   .tasks-grid {
     grid-template-columns: 1fr;
+    grid-gap: 40px;
   }
 
   .tasks-grid .wide {
