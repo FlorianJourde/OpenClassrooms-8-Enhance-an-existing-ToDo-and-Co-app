@@ -1,27 +1,9 @@
-/*.button-primary, .button-secondary, .button-tertiary, form button[type=submit] {*/
-/*  width: fit-content;*/
-/*  text-transform: uppercase;*/
-/*  font-family: var(--ff-secondary);*/
-/*  font-weight: 600;*/
-/*}*/
-
-/*::-webkit-file-upload-button {*/
-/*  color: var(--clr-white);*/
-/*}*/
-
-/*.button-form, ::-webkit-file-upload-button {*/
-/*  cursor: pointer;*/
-/*  max-width: 200px;*/
-/*  border: none;*/
-/*}*/
-
-.button-primary, .button-secondary/*, form button[type=submit]*/ {
+.button-primary, .button-secondary {
   padding: 8px 16px;
   border: unset;
   color: var(--clr-white);
   gap: 10px;
   display: flex;
-  /*display: inline-flex;*/
   align-items: center;
   justify-content: center;
   border-radius: var(--br-primary);
@@ -53,7 +35,7 @@ a.button-primary:hover, button.button-primary:hover {
   background-color: var(--clr-yellow);
 }
 
-.button-primary.button-dark-blue/*, form button[type=submit]*/ {
+.button-primary.button-dark-blue {
   background-color: var(--clr-blue);
 }
 
@@ -76,19 +58,6 @@ a.button-primary:hover, button.button-primary:hover {
 .button-primary.button-transparent-grey:hover {
   background-color: var(--clr-transparent-black);
 }
-
-/*.button-primary.button-black, form button[type=submit] {*/
-/*    background-color: var(--clr-very-dark-grey);*/
-/*}*/
-
-/*.button-primary.button-white {*/
-/*  color: var(--clr-very-dark-grey);*/
-/*}*/
-
-/*.button-primary.button-white:hover {*/
-/*  color: var(--clr-white);*/
-/*  background-color: var(--clr-very-dark-grey);*/
-/*}*/
 
 .button-secondary {
   background-color: unset;
@@ -121,104 +90,3 @@ a.button-primary:hover, button.button-primary:hover {
 .button-secondary.button-dark-yellow:hover {
   background-color: var(--clr-white);
 }
-
-/*.button-secondary.button-black {*/
-/*  color: var(--clr-very-dark-grey);*/
-/*}*/
-
-/*.navigation.links li:hover {*/
-/*  transform: translateY(-5px);*/
-/*}*/
-
-/*.button-tertiary.button-white {*/
-/*  color: var(--clr-white);*/
-/*}*/
-
-/*.button-tertiary.button-white:hover {*/
-/*  color: var(--clr-light-blue);*/
-/*}*/
-
-/*.button-tertiary.button-black {*/
-/*  color: var(--clr-black);*/
-/*}*/
-
-/*.button-tertiary.button-black:hover {*/
-/*  color: var(--clr-dark-blue);*/
-/*}*/
-
-/*.button-primary.button-black:hover {*/
-/*  background-color: var(--clr-dark-blue);*/
-/*}*/
-
-/*.button-secondary:hover {*/
-/*  background-color: var(--clr-very-dark-grey);*/
-/*  color: var(--clr-white);*/
-/*}*/
-
-/*.button-small {*/
-/*  padding: 6px 12px;*/
-/*}*/
-
-/*.button-large {*/
-/*  padding: 15px 25px;*/
-/*}*/
-
-/*.button-dark-orange {*/
-/*  background-color: var(--clr-dark-orange);*/
-/*  color: var(--clr-white);*/
-/*}*/
-
-/*.button-dark-orange:hover, .button-orange:hover, .button-very-dark-purple:hover, .button-very-dark-green:hover, .button-dark-pink:hover, .button-dark-red:hover,.button-primary.button-red:hover, .button-primary.button-dark-red:hover, .button-very-dark-yellow:hover, .button-very-dark-blue:hover, ::-webkit-file-upload-button:hover {*/
-/*  background-color: var(--clr-very-dark-grey);*/
-/*}*/
-
-/*.button-primary.button-blue {*/
-/*  background-color: var(--clr-dark-blue);*/
-/*}*/
-
-/*.button-secondary.button-blue {*/
-/*  color: var(--clr-dark-blue);*/
-/*}*/
-
-/*.button-tertiary.button-blue {*/
-/*  color: var(--clr-dark-blue);*/
-/*}*/
-
-/*.button-tertiary.button-blue:hover {*/
-/*  color: var(--clr-very-dark-grey);*/
-/*}*/
-
-/*.button-dark-red {*/
-/*  background-color: var(--clr-dark-red);*/
-/*  color: var(--clr-white);*/
-/*}*/
-
-/*.button-primary.button-red {*/
-/*  background-color: var(--clr-dark-red);*/
-/*}*/
-
-/*.button-orange {*/
-/*  background-color: var(--clr-orange);*/
-/*  color: var(--clr-white);*/
-/*}*/
-
-/*.button-primary.button-green {*/
-/*  background-color: var(--clr-green);*/
-/*}*/
-
-/*.button-primary.button-yellow:hover, .button-primary.button-pink:hover, .button-primary.button-blue:hover {*/
-/*  background-color: var(--clr-very-dark-grey);*/
-/*}*/
-
-/*.button-primary.button-white {*/
-/*  background-color: var(--clr-white);*/
-/*}*/
-
-/*.button-secondary.button-white {*/
-/*  color: var(--clr-white);*/
-/*}*/
-
-/*.button-secondary.button-white:hover {*/
-/*  background-color: var(--clr-white);*/
-/*  color: var(--clr-very-dark-grey);*/
-/*}*/

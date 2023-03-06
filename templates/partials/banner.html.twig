@@ -3,25 +3,33 @@
     {% set isWide = 'wide' %}
 {% endif %}
 
-{% if app.session.flashBag.get is defined %}
-    <div class="wrapper">
-        {% for flash_message in app.session.flashBag.get('success') %}
-            <div class="alert" role="alert">
-                <strong>Superbe !</strong> {{ flash_message }}
-            </div>
-        {% endfor %}
+{% if app.session.flashBag is empty %}
 
-        {% for flash_message in app.session.flashBag.get('error') %}
-            <div class="alert error" role="alert">
-                <strong>Oups !</strong> {{ flash_message }}
-            </div>
-        {% endfor %}
-    </div>
+    <section class="alert-section">
+        <div class="wrapper">
+
+            {% for flash_message in app.session.flashBag.get('success') %}
+                <div class="alert" role="alert">
+                    <strong>Superbe !</strong> {{ flash_message }}
+                </div>
+            {% endfor %}
+
+            {% for flash_message in app.session.flashBag.get('error') %}
+                <div class="alert error" role="alert">
+                    <strong>Oups !</strong> {{ flash_message }}
+                </div>
+            {% endfor %}
+
+        </div>
+    </section>
+
 {% endif %}
 
-<div class="wrapper">
-    <div class="banner {{ isWide is defined ? isWide : '' }}" style="background-image: url({{ asset('img/todo-and-co-illustration.png') }})">
-        <h1>{{ banner_title | raw }}</h1>
-        {% block header_title %}{% endblock %}
+<div class="header-section">
+    <div class="wrapper">
+        <div class="banner {{ isWide is defined ? isWide : '' }}" style="background-image: url({{ asset('img/todo-and-co-illustration.png') }})">
+            <h1>{{ banner_title | raw }}</h1>
+            {% block header_title %}{% endblock %}
+        </div>
     </div>
 </div>

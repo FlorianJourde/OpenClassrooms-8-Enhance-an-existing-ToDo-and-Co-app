@@ -1,21 +1,3 @@
-/** {*/
-/*    scrollbar-width: auto;*/
-/*    scrollbar-color: #232b31 #ffffff;*/
-/*    scrollbar-width: thin;*/
-/*}*/
-
-/**::-webkit-scrollbar {*/
-/*    width: 8px;*/
-/*}*/
-
-/**::-webkit-scrollbar-track {*/
-/*    background: #ffffff;*/
-/*}*/
-
-/**::-webkit-scrollbar-thumb {*/
-/*    background-color: var(--clr-very-dark-grey);*/
-/*}*/
-
 ::selection {
     background-color: var(--clr-yellow);
     color: var(--clr-very-dark-grey);
@@ -43,7 +25,6 @@ input, textarea, ::-webkit-file-upload-button {
   width: 100%;
   padding: 20px;
   border: none;
-  /*box-shadow: var(--bs-primary);*/
   background-color: var(--clr-very-light-blue);
   border-radius: var(--br-primary);
 }
@@ -59,12 +40,6 @@ textarea {
 ::-webkit-file-upload-button {
     margin-right: 20px;
     background-color: var(--clr-dark-blue);
-}
-
-form {
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*gap: 40px;*/
 }
 
 form input, form textarea {

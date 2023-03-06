@@ -1,11 +1,4 @@
-@media (min-width: 1025px) {
-}
-
 @media (max-width: 1280px) {
-  /*.tricks {*/
-  /*  grid-template-columns: repeat(3, 1fr);*/
-  /*}*/
-
   .banner.wide {
     background-size: 500px;
     background-position: left -100px top 50%;
@@ -36,20 +29,7 @@
     height: 100%;
     background-color: var(--clr-very-light-blue);
     opacity: .8;
-    /* position: relative; */
   }
-
-  /*.tricks, .images, .edit-section .specificities {*/
-  /*  grid-template-columns: repeat(2, 1fr);*/
-  /*}*/
-
-  /*.edit-section .images {*/
-  /*  grid-template-columns: repeat(3, 1fr);*/
-  /*}*/
-
-  /*.video-section iframe {*/
-  /*  height: 400px;*/
-  /*}*/
 }
 
 @media (max-width: 768px) {
@@ -71,16 +51,8 @@
     padding-top: 10px;
   }
 
-  .navbar .hello-user {
-    /*display: none;*/
-  }
-
   .table th, .table td {
     padding: 10px;
-  }
-
-  .banner.wide {
-    /*background-position: left 150px top 75%;*/
   }
 
   .banner h1 {
