@@ -14,7 +14,6 @@ class TaskType extends AbstractType
         $builder
             ->add('title', TextType::class, ['label' => 'Titre de la tâche'])
             ->add('content', TextareaType::class, ['label' => 'Contenu de la tâche'])
-            //->add('author') ===> must be the user authenticated
         ;
     }
 }

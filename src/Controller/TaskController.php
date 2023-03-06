@@ -11,7 +11,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use function PHPUnit\Framework\throwException;
 
 class TaskController extends AbstractController
 {
@@ -31,7 +30,6 @@ class TaskController extends AbstractController
     public function getTodoTasks(TaskRepository $taskRepository)
     {
         $doneTasks = $taskRepository->findAllByStatus(false);
-//        dd($doneTasks);
 
         return $this->render('task/list-todo.html.twig', ['tasks' => $doneTasks]);
     }
