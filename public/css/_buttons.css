@@ -90,3 +90,11 @@ a.button-primary:hover, button.button-primary:hover {
 .button-secondary.button-dark-yellow:hover {
   background-color: var(--clr-white);
 }
+
+.button-secondary.button-dark-green {
+  color: var(--clr-dark-green);
+}
+
+.button-secondary.button-dark-green:hover {
+  background-color: var(--clr-white);
+}

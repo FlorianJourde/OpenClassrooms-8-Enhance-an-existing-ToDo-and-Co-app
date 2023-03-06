@@ -71,7 +71,12 @@
 }
 
 .users-management.actions ul {
-  background-color: var(--clr-very-light-blue);
+  background-color: var(--clr-yellow);
+  border-radius: var(--br-primary) var(--br-primary) 0 0;
+}
+
+.users-management + .tasks-management ul {
+  border-radius: 0 0 var(--br-primary) var(--br-primary);
 }
 
 .alert {

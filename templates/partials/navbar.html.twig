@@ -39,11 +39,11 @@
 </nav>
 
 {% if is_granted('ROLE_ADMIN') %}
-    <section class="users-management actions margin-bottom-50">
+    <section class="users-management actions">
         <div class="wrapper">
             <ul>
-                <li><a href="{{ path('user_create') }}" class="button-secondary button-dark-blue">Créer un utilisateur</a></li>
-                <li><a href="{{ path('user_list') }}" class="button-secondary button-dark-blue">Liste des utilisateurs</a></li>
+                <li><a href="{{ path('user_create') }}" class="button-secondary button-dark-yellow">Créer un utilisateur</a></li>
+                <li><a href="{{ path('user_list') }}" class="button-secondary button-dark-yellow">Liste des utilisateurs</a></li>
             </ul>
         </div>
     </section>
