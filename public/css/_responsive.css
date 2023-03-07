@@ -15,6 +15,10 @@
     min-height: unset;
   }
 
+  .banner:not(.wide) h1 {
+    text-align: center;
+  }
+
   .banner::after {
     content: "";
     position: absolute;
@@ -55,6 +59,10 @@
 
   .table th, .table td {
     padding: 10px;
+  }
+
+  .banner {
+    background-size: 500px;
   }
 
   .banner h1 {

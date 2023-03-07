@@ -102,6 +102,10 @@
   width: 100%;
 }
 
+.tasks-section {
+  overflow-x: hidden;
+}
+
 .tasks-grid {
   display: grid;
   grid-gap: 50px;
