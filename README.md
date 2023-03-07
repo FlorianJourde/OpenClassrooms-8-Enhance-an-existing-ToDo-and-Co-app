@@ -15,7 +15,8 @@ Bonjour et bienvenue sur le dépôt de mon travail, qui traite du septième proj
 
 Vous trouverez également, dans le dossier **ressources**, les diagrammes UML conçus en amont du projet, la base de données au format SQL, ainsi qu'un lien vers la documentation de l'API, hébergée par Postman.
 
-[![Projet](https://img.shields.io/badge/Projet--7d5ce9?style=for-the-badge&logo=Symfony&logoColor=white)](https://openclassrooms.com/projects/ameliorer-un-projet-existant-1) [![Dépôt](https://img.shields.io/badge/Dépôt--000000?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/saro0h/projet8-TodoList)
+[![Preview site](https://img.shields.io/badge/Site%20web--fe746e?style=for-the-badge&logo=InternetExplorer&logoColor=white)](http://todoandco.florianjourde.com/) [![Dépôt](https://img.shields.io/badge/Dépôt%20initial--000000?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/saro0h/projet8-TodoList)
+
 
 ---
 
@@ -152,6 +153,14 @@ Pour pouvoir installer ce projet, le gestionnaire de dépendance **Composer** do
 
 
 [comment]: <> (14. Vous trouverez les identifiants de connexion et toutes les autres informations nécéssaires directement sur la documentation de l'API, dont le lien se trouve en haut de ce fichier.)
+
+1. Pour pouvoir tester les fonctionnalités du site, veuillez utiliser les identifiants par défaut :
+- Admin
+	- ID : admin@todoandco.com
+	- MDP : 123456
+- User
+	- ID : user1@todoandco.com
+	- MDP : 123456
 
 
 ### Merci pour votre attention !
