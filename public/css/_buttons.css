@@ -87,7 +87,7 @@ a.button-primary:hover, button.button-primary:hover {
   color: var(--clr-dark-yellow);
 }
 
-.button-secondary.button-dark-yellow:hover {
+.button-secondary.button-dark-yellow:hover, .button-secondary.button-dark-yellow.active {
   background-color: var(--clr-white);
 }
 

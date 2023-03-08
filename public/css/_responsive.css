@@ -3,6 +3,10 @@
     background-size: 500px;
     background-position: left -100px top 50%;
   }
+
+  .tasks-grid {
+    grid-gap: 40px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -58,7 +62,7 @@
   }
 
   .table th, .table td {
-    padding: 10px;
+    padding: 15px;
   }
 
   .banner {
@@ -71,7 +75,6 @@
 
   .tasks-grid {
     grid-template-columns: 1fr;
-    grid-gap: 40px;
   }
 
   .tasks-grid .wide {
