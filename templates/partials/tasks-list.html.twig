@@ -18,6 +18,7 @@
                 {% set bigTallGap = true %}
 
                 {% for task in tasks %}
+
                     {% set isWide = '' %}
                     {% set firstWide = 3 %}
                     {% if loop.index is same as firstWide %}
@@ -90,9 +91,13 @@
                                         {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
                                     </button>
                                 </form>
-                                <form action="{{ path('app_task_delete', {'id' : task.id }) }}">
-                                    <button class="button-primary button-dark-grey">Supprimer</button>
-                                </form>
+
+                                {% if is_granted('task_delete', task) %}
+                                    <form action="{{ path('app_task_delete', {'id' : task.id }) }}">
+                                        <button class="button-primary button-dark-grey">Supprimer</button>
+                                    </form>
+                                {% endif %}
+
                             </div>
                         {% endif %}
 

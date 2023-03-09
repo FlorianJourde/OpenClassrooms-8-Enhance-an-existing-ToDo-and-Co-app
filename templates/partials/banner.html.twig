@@ -3,20 +3,20 @@
     {% set isWide = 'wide' %}
 {% endif %}
 
-{% if app.session.flashBag is empty %}
+{% if app.session.flashBag is not empty %}
 
     <section class="alert-section">
         <div class="wrapper">
 
             {% for flash_message in app.session.flashBag.get('success') %}
-                <div class="alert" role="alert">
-                    <strong>Superbe !</strong> {{ flash_message }}
+                <div class="alert center-text" role="alert">
+                    <p>{{ flash_message | raw }}</p>
                 </div>
             {% endfor %}
 
             {% for flash_message in app.session.flashBag.get('error') %}
-                <div class="alert error" role="alert">
-                    <strong>Oups !</strong> {{ flash_message }}
+                <div class="alert center-text error" role="alert">
+                    <p>{{ flash_message | raw }}</p>
                 </div>
             {% endfor %}
 

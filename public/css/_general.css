@@ -49,21 +49,32 @@
 
 .banner h1 {
   max-width: 700px;
-  padding: 100px 100px;
   z-index: 1;
   font-size: var(--fs-title);
   text-shadow: 1px 1px 0 var(--clr-white);
+  padding: 100px 100px;
+}
+
+.banner:not(.wide) h1 {
+  background-color: var(--clr-very-light-blue);
+  padding: 20px 40px;
+  margin: 60px;
+  border-radius: var(--br-primary) ;
 }
 
 .banner.wide {
   min-height: 500px;
   background-position: left 50px top 50%;
   background-size: 700px;
+  justify-content: flex-start;
+}
+
+.actions ul {
+  display: flex;
 }
 
 .actions ul, .alert {
   background-color: var(--clr-very-light-yellow);
-  display: flex;
   flex-wrap: wrap;
   gap: 10px 50px;
   border-radius: var(--br-primary);

@@ -10,6 +10,10 @@
 }
 
 @media (max-width: 1024px) {
+  .banner:not(.wide) h1 {
+    background-color: unset;
+  }
+
   .tasks-grid {
     grid-template-columns: 1fr 1fr;
   }

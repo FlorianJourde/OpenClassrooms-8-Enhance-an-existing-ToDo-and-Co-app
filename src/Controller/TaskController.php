@@ -9,7 +9,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 class TaskController extends AbstractController
@@ -60,7 +59,7 @@ class TaskController extends AbstractController
             $em->persist($task);
             $em->flush();
 
-            $this->addFlash('success', 'La tâche a été bien été ajoutée.');
+            $this->addFlash('success', sprintf('La tâche <strong>%s</strong> a bien été ajoutée.', $task->getTitle()));
 
             return $this->redirectToRoute('app_task_list');
         }
@@ -81,7 +80,7 @@ class TaskController extends AbstractController
             $em->persist($task);
             $em->flush();
 
-            $this->addFlash('success', 'La tâche a bien été modifiée.');
+            $this->addFlash('success', sprintf('La tâche <strong>%s</strong> a bien été modifiée.', $task->getTitle()));
 
             return $this->redirectToRoute('app_task_list');
         }
@@ -98,9 +97,15 @@ class TaskController extends AbstractController
         $task->toggle(!$task->isDone());
         $em->flush();
 
-        $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+        $status = $task->isDone() ? 'faite' : 'non terminée';
 
-        return $this->redirectToRoute('app_task_list');
+        $this->addFlash('success', sprintf('La tâche <strong>%s</strong> a bien été marquée comme %s.', $task->getTitle(), $status));
+
+        if ($task->isDone()) {
+            return $this->redirectToRoute('app_tasks_done');
+        } else {
+            return $this->redirectToRoute('app_tasks_todo');
+        }
     }
 
     /**
@@ -109,16 +114,12 @@ class TaskController extends AbstractController
      */
     public function deleteTaskAction(Task $task, EntityManagerInterface $em)
     {
-        if (!(in_array('ROLE_ADMIN', $this->getUser()->getRoles(), true))) {
-            if (!($task->getAuthor() === $this->getUser())) {
-                throw new AccessDeniedHttpException('Vous n\'avez pas les droits pour supprimer cette tâche.');
-            }
-        }
+        $this->denyAccessUnlessGranted('task_delete', $task);
 
         $em->remove($task);
         $em->flush();
 
-        $this->addFlash('success', 'La tâche a bien été supprimée.');
+        $this->addFlash('success', sprintf('La tâche <strong>%s</strong> a bien été supprimée.', $task->getTitle()));
 
         return $this->redirectToRoute('app_task_list');
     }
