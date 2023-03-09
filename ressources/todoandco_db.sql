@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 07 mars 2023 à 17:44
+-- Généré le : jeu. 09 mars 2023 à 17:57
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `task` (
 --
 
 INSERT INTO `task` (`id`, `created_at`, `title`, `content`, `is_done`, `author_id`) VALUES
-(69, '2023-03-04 16:35:32', '5/28', 'Nicolas Jaar, Rival Consoles, Weval, Max Cooper, Daniel Avery, Boards of Canada, The Chemical Brothers, Todd Terje, Daniel Avery, The XX, Moderat, Superpoze, Rone, LCD Soundsystem....', 0, 24),
+(69, '2023-03-04 16:35:32', '5/28', 'Nicolas Jaar, Rival Consoles, Weval, Max Cooper, Daniel Avery, Boards of Canada, The Chemical Brothers, Todd Terje, Daniel Avery, The XX, Moderat, Superpoze, Rone, LCD Soundsystem....', 1, 24),
 (70, '2023-03-04 16:35:32', 'Livres à lire', 'Sorti les poubelles <br> Promener le chien', 0, 25),
 (71, '2023-03-04 16:35:32', 'Médecin', '06 89 70 46 99 </br> 05 55 03 42 29 </br> 04 56 23 32 17', 0, 24),
 (72, '2023-03-04 16:35:32', 'Site web', '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>', 0, 25),
@@ -113,7 +113,7 @@ INSERT INTO `task` (`id`, `created_at`, `title`, `content`, `is_done`, `author_i
 (94, '2023-03-04 16:35:32', 'Livres à lire', 'L\'Étranger, Sapiens, Le Pouvoir du Moment Présent, Les quatre accords toltèques', 0, 24),
 (95, '2023-03-04 16:35:32', 'Site web', '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>', 0, 25),
 (96, '2023-03-04 16:35:32', 'Réunion 03/23', 'Préparer la soutenance <br>', 0, 23),
-(98, '2023-03-04 16:35:32', 'Métro', 'www.senscritique.com <br> www.allocine.com <br> www.last.fm <br> www.openclassrooms.com', 0, NULL),
+(98, '2023-03-04 16:35:32', 'Métro', 'www.senscritique.com <br> www.allocine.com <br> www.last.fm <br> www.openclassrooms.com', 1, NULL),
 (99, '2023-03-05 18:22:59', 'Titre de la tâche !', 'Contenu de la tâche ! <br> Le HTML est-il interprété ici ?', 0, 23),
 (100, '2023-03-06 17:10:23', 'Tâches ménagères !', '- Laver le linge <br> - Faire la vaisselle <br> - Passer l\'aspirateur', 1, 27);
 
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
@@ -140,10 +140,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`, `username`) VALUES
 (23, 'admin@todoandco.com', '[\"ROLE_ADMIN\", \"ROLE_USER\"]', '$2y$13$LICbsVwgf022U0tCW.NNxOF7Ar8aymXuRKAKLF4W0i/QU40UkOIyK', 'Admin'),
-(24, 'user1@todoandco.com', '[\"ROLE_USER\", \"ROLE_ADMIN\"]', '$2y$13$r2Oa92saCL3Mz7tUhSw6eeiCCHHldGaPCeqp9NS0BAMeG5t5IfPge', 'Utilisateur1'),
-(25, 'user2@todoandco.com', '[\"ROLE_USER\"]', '$2y$13$vu0h82otWV5y7i4IxeexdeFff5rdKK75Mg/lNvlLGwOlkWVwxe3ZG', 'Utilisateur2'),
+(24, 'user1@todoandco.com', '[\"ROLE_USER\", \"ROLE_ADMIN\"]', '$2y$13$sLkhrkPArzWEuVqFR/IzruTbkVC16gxyzM1v2avxbfcfXiTv32tom', 'User1'),
+(25, 'user2@todoandco.com', '[\"ROLE_ADMIN\"]', '$2y$13$Yv4njFC/frw5OmCP9qSD2OMS4cpRfnVeMXfd7XIpaKnj5ZirSNnLO', 'Utilisateur2'),
 (26, 'user3@todoandco.com', '[\"ROLE_USER\"]', '$2y$13$0ILfUD5RlL.QLga6tL6eBO8CsJ.BHmsg8fcEcvND/b0ypzNHJBovW', 'Utilisateur3'),
-(27, 'user4@todoandco.com', '[\"ROLE_USER\"]', '$2y$13$6qEkxmqsDSX/l2NmOL4YE.TunV70Txd7iEYgXQTm.jnNMY59Enmse', 'Utilisateur4');
+(27, 'user4@todoandco.com', '[\"ROLE_USER\"]', '$2y$13$6qEkxmqsDSX/l2NmOL4YE.TunV70Txd7iEYgXQTm.jnNMY59Enmse', 'Utilisateur4'),
+(28, 'user5@todoandco.com', '[\"ROLE_USER\", \"ROLE_ADMIN\"]', '$2y$13$APGRpGTMesfXvK8X2yFeaeE2R4FSZMrgU6M3SIMaoNWUu8tws3VBa', 'Utilisateur5');
 
 --
 -- Contraintes pour les tables déchargées
