@@ -5,6 +5,7 @@ namespace App\Entity;
 use Datetime;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\TaskRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -23,24 +24,24 @@ class Task
     /**
      * @ORM\Column(type="datetime")
      */
-    private $createdAt;
+    private DateTime $createdAt;
 
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message="Vous devez saisir un titre.")
      */
-    private $title;
+    private string $title;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="Vous devez saisir du contenu.")
      */
-    private $content;
+    private string $content;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isDone;
+    private bool $isDone;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="tasks")
@@ -115,7 +116,7 @@ class Task
         return $this->author;
     }
 
-    public function setAuthor(?User $author): self
+    public function setAuthor(User|UserInterface|null $author): self
     {
         $this->author = $author;
 
