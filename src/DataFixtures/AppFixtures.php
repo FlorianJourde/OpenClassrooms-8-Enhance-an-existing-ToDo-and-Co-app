@@ -12,11 +12,17 @@ class AppFixtures extends Fixture
 {
     private UserPasswordHasherInterface $userPasswordHasher;
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function __construct(UserPasswordHasherInterface $userPasswordHasher)
     {
         $this->userPasswordHasher = $userPasswordHasher;
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function load(ObjectManager $manager): void
     {
         $users = [null];
@@ -59,7 +65,7 @@ class AppFixtures extends Fixture
             $task = new Task();
             $task->setTitle($tasksTitle[array_rand($tasksTitle)]);
             $task->setContent($tasksContent[array_rand($tasksContent)]);
-            $task->setIsDone($status[array_rand($status)]);
+            $task->toggle($status[array_rand($status)]);
             $task->setAuthor($users[array_rand($users)]);
             $manager->persist($task);
         }

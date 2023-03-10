@@ -81,10 +81,10 @@ class UserControllerTest extends WebTestCase
             }
         }
 
-        $this->client->request(Request::METHOD_GET, '/admin/users/' . $usersExceptAdmins[0]->getId() . '/edit');
+        $this->client->request(Request::METHOD_GET, '/admin/users/' . end($usersExceptAdmins)->getId() . '/edit');
         $this->assertResponseIsSuccessful();
         $this->assertRouteSame('app_user_edit');
-        $this->assertRequestAttributeValueSame('id', $usersExceptAdmins[0]->getId());
+        $this->assertRequestAttributeValueSame('id', end($usersExceptAdmins)->getId());
 
         $this->client->submitForm('Modifier', [
             'user[username]' => 'Utilisateur' . uniqid(),
