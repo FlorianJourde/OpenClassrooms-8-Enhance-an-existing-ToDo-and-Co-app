@@ -4,13 +4,14 @@ namespace App\Tests\Controller;
 
 use App\Repository\TaskRepository;
 use App\Repository\UserRepository;
+use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class TaskControllerTest extends WebTestCase
 {
-    private $client;
+    private KernelBrowser $client;
 
     public function setUp(): void
     {
