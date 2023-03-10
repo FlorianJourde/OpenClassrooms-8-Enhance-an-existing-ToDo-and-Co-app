@@ -116,7 +116,7 @@ class Task
         return $this->author;
     }
 
-    public function setAuthor(User|UserInterface|null $author): self
+    public function setAuthor(?User $author): self
     {
         $this->author = $author;
 
