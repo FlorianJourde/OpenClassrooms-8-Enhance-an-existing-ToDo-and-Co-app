@@ -44,8 +44,8 @@
     <section class="users-management actions">
         <div class="wrapper">
             <ul>
-                <li><a href="{{ path('user_create') }}" class="button-secondary button-dark-yellow {{ app.request.requestUri is same as path('user_create') ? 'active' : '' }}">Créer un utilisateur</a></li>
-                <li><a href="{{ path('user_list') }}" class="button-secondary button-dark-yellow {{ app.request.requestUri is same as path('user_list') ? 'active' : '' }}">Liste des utilisateurs</a></li>
+                <li><a href="{{ path('app_user_create') }}" class="button-secondary button-dark-yellow {{ app.request.requestUri is same as path('app_user_create') ? 'active' : '' }}">Créer un utilisateur</a></li>
+                <li><a href="{{ path('app_user_list') }}" class="button-secondary button-dark-yellow {{ app.request.requestUri is same as path('app_user_list') ? 'active' : '' }}">Liste des utilisateurs</a></li>
             </ul>
         </div>
     </section>

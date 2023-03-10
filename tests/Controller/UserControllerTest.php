@@ -57,7 +57,7 @@ class UserControllerTest extends WebTestCase
 
         $this->assertResponseRedirects();
         $this->client->followRedirect();
-        $this->assertRouteSame('user_list');
+        $this->assertRouteSame('app_user_list');
     }
 
     public function testEditUser(): void
@@ -83,7 +83,7 @@ class UserControllerTest extends WebTestCase
 
         $this->client->request(Request::METHOD_GET, '/admin/users/' . $usersExceptAdmins[0]->getId() . '/edit');
         $this->assertResponseIsSuccessful();
-        $this->assertRouteSame('user_edit');
+        $this->assertRouteSame('app_user_edit');
         $this->assertRequestAttributeValueSame('id', $usersExceptAdmins[0]->getId());
 
         $this->client->submitForm('Modifier', [
@@ -95,6 +95,6 @@ class UserControllerTest extends WebTestCase
 
         $this->assertResponseRedirects();
         $this->client->followRedirect();
-        $this->assertRouteSame('user_list');
+        $this->assertRouteSame('app_user_list');
     }
 }
