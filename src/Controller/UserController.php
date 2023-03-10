@@ -42,7 +42,7 @@ class UserController extends AbstractController
 
             $this->addFlash('success', sprintf('L\'utilisateur <strong>%s</strong> a bien été ajouté.', $user->getUserIdentifier()));
 
-            return $this->redirectToRoute('user_list');
+            return $this->redirectToRoute('app_user_list');
         }
 
         return $this->render('user/create.html.twig', ['form' => $form->createView()]);
