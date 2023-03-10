@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/admin/users", name="user_list")
+     * @Route("/admin/users", name="app_user_list")
      */
     public function listAction(UserRepository $userRepository)
     {
@@ -26,7 +26,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/users/create", name="user_create")
+     * @Route("/admin/users/create", name="app_user_create")
      */
     public function createAction(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $em/*, EntityManager $em*/)
     {
@@ -42,14 +42,14 @@ class UserController extends AbstractController
 
             $this->addFlash('success', sprintf('L\'utilisateur <strong>%s</strong> a bien été ajouté.', $user->getUserIdentifier()));
 
-            return $this->redirectToRoute('user_list');
+            return $this->redirectToRoute('app_user_list');
         }
 
         return $this->render('user/create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
-     * @Route("/admin/users/{id}/edit", name="user_edit")
+     * @Route("/admin/users/{id}/edit", name="app_user_edit")
      */
     public function editAction(User $user, Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $em)
     {
@@ -64,7 +64,7 @@ class UserController extends AbstractController
 
             $this->addFlash('success', sprintf('L\'utilisateur <strong>%s</strong> a bien été modifié.', $user->getUserIdentifier()));
 
-            return $this->redirectToRoute('user_list');
+            return $this->redirectToRoute('app_user_list');
         }
 
         return $this->render('user/edit.html.twig', ['form' => $form->createView(), 'user' => $user]);

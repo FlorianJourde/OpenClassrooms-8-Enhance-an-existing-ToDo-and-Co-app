@@ -15,7 +15,7 @@ Bonjour et bienvenue sur le dépôt de mon travail, qui traite du septième proj
 
 Vous trouverez également, dans le dossier **ressources**, les diagrammes UML conçus en amont du projet, la base de données au format SQL, ainsi qu'un lien vers la documentation de l'API, hébergée par Postman.
 
-[![Preview site](https://img.shields.io/badge/Site%20web--fe746e?style=for-the-badge&logo=InternetExplorer&logoColor=white)](http://todoandco.florianjourde.com/) [![Dépôt](https://img.shields.io/badge/Dépôt%20initial--000000?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/saro0h/projet8-TodoList)
+[![Preview site](https://img.shields.io/badge/Site%20web--fe746e?style=for-the-badge&logo=InternetExplorer&logoColor=white)](http://todoandco.florianjourde.com/) [![Couverture de test](https://img.shields.io/badge/Couverture%20de%20test--788ced?style=for-the-badge&logo=PHP&logoColor=white)](https://testcoverage-todoandco.florianjourde.com/) [![Dépôt](https://img.shields.io/badge/Dépôt%20initial--000000?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/saro0h/projet8-TodoList)
 
 
 ---

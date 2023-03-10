@@ -7,7 +7,7 @@
     <section class="users-edit-sections margin-top-50">
         <div class="wrapper wrapper-small">
 
-            {{ form_start(form, {'action' : path('user_edit', {'id' : user.id} )}) }}
+            {{ form_start(form, {'action' : path('app_user_edit', {'id' : user.id} )}) }}
                 {{ form_row(form.username) }}
                 {{ form_row(form.email) }}
                 {{ form_row(form.password) }}

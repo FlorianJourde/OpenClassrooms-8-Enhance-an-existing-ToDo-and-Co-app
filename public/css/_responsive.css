@@ -12,6 +12,7 @@
 @media (max-width: 1024px) {
   .banner:not(.wide) h1 {
     background-color: unset;
+    text-align: center;
   }
 
   .tasks-grid {
@@ -21,10 +22,6 @@
   .banner, .banner.wide {
     align-items: center;
     min-height: unset;
-  }
-
-  .banner:not(.wide) h1 {
-    text-align: center;
   }
 
   .banner::after {
@@ -73,8 +70,9 @@
     background-size: 500px;
   }
 
-  .banner h1 {
-    padding: 50px;
+  .banner:not(.wide) h1, .banner h1 {
+    padding: unset;
+    margin: 50px;
   }
 
   .tasks-grid {

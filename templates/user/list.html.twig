@@ -5,12 +5,12 @@
 {% block title %}Liste des utilisateurs{% endblock %}
 
 {% block body %}
-    <section class="users-list-sections margin-top-50">
+    <section class="users-list-section margin-top-50">
         <div class="wrapper">
 
             {% if users|length == 0 %}
                 <div class="alert alert-warning" role="alert">
-                    Il n'y a pas encore d'utilisateur enregistré. <a href="{{ path('user_create') }}" class="btn btn-warning pull-right">Créer un utilisateur</a>
+                    Il n'y a pas encore d'utilisateur enregistré. <a href="{{ path('app_user_create') }}" class="btn btn-warning pull-right">Créer un utilisateur</a>
                 </div>
             {% else %}
                 <div class="table-scroll">
@@ -41,7 +41,7 @@
                                 <td>
 
                                     {% if user.email not in 'admin@todoandco.com' %}
-                                        <a class="actions" href="{{ path('user_edit', {'id' : user.id}) }}">
+                                        <a class="actions" href="{{ path('app_user_edit', {'id' : user.id}) }}">
                                             <img src="{{ asset('img/pen.svg') }}" alt="">
                                         </a>
                                     {% endif %}

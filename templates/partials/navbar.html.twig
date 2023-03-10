@@ -1,9 +1,9 @@
 <nav class="navbar margin-bottom-20">
     <div class="wrapper">
         <div class="logo">
-            <a href="{{ path('homepage') }}">
+            <a href="{{ path('app_homepage') }}">
                 <img src="{{ asset('img/todo-and-co-logo.svg') }}" alt="ToDo & Co logo" />
-                <a class="navbar-brand" href="{{ path('homepage') }}"><span>ToDo</span>&nbsp;<span>&</span>&nbsp;<span>Co</span></a>
+                <a class="navbar-brand" href="{{ path('app_homepage') }}"><span>ToDo</span>&nbsp;<span>&</span>&nbsp;<span>Co</span></a>
             </a>
         </div>
         <div class="menu">
@@ -44,8 +44,8 @@
     <section class="users-management actions">
         <div class="wrapper">
             <ul>
-                <li><a href="{{ path('user_create') }}" class="button-secondary button-dark-yellow {{ app.request.requestUri is same as path('user_create') ? 'active' : '' }}">Créer un utilisateur</a></li>
-                <li><a href="{{ path('user_list') }}" class="button-secondary button-dark-yellow {{ app.request.requestUri is same as path('user_list') ? 'active' : '' }}">Liste des utilisateurs</a></li>
+                <li><a href="{{ path('app_user_create') }}" class="button-secondary button-dark-yellow {{ app.request.requestUri is same as path('app_user_create') ? 'active' : '' }}">Créer un utilisateur</a></li>
+                <li><a href="{{ path('app_user_list') }}" class="button-secondary button-dark-yellow {{ app.request.requestUri is same as path('app_user_list') ? 'active' : '' }}">Liste des utilisateurs</a></li>
             </ul>
         </div>
     </section>
