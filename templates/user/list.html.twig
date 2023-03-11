@@ -41,9 +41,18 @@
                                 <td>
 
                                     {% if user.email not in 'admin@todoandco.com' %}
-                                        <a class="actions" href="{{ path('app_user_edit', {'id' : user.id}) }}">
-                                            <img src="{{ asset('img/pen.svg') }}" alt="">
-                                        </a>
+                                        <ul class="actions">
+                                            <li>
+                                                <a href="{{ path('app_user_edit', {'id' : user.id}) }}">
+                                                    <img src="{{ asset('img/pen.svg') }}" alt="">
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('app_user_delete', {'id' : user.id}) }}">
+                                                    <img src="{{ asset('img/trash-can.svg') }}" alt="">
+                                                </a>
+                                            </li>
+                                        </ul>
                                     {% endif %}
 
                                 </td>

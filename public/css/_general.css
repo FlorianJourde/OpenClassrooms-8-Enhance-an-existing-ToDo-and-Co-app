@@ -257,10 +257,15 @@ form #user_roles input:first-child, form #user_roles textarea:first-child {
   object-fit: contain;
 }
 
-.table tbody td a {
+.table tbody td ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+}
+
+.table tbody td a {
+  display: flex;
 }
 
 .table th,

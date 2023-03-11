@@ -69,4 +69,17 @@ class UserController extends AbstractController
 
         return $this->render('user/edit.html.twig', ['form' => $form->createView(), 'user' => $user]);
     }
+
+    /**
+     * @Route("/admin/users/{id}/delete", name="app_user_delete")
+     */
+    public function deleteAction(User $user, EntityManagerInterface $em)
+    {
+        $em->remove($user);
+        $em->flush();
+
+        $this->addFlash('success', sprintf('L\'utilisateur <strong>%s</strong> a bien été supprimé.', $user->getUserIdentifier()));
+
+        return $this->redirectToRoute('app_user_list');
+    }
 }

@@ -96,7 +96,7 @@ class TaskControllerTest extends WebTestCase
         $this->assertSelectorExists('.tasks-section');
     }
 
-    public function testToggleTaskTask(): void
+    public function testToggleTask(): void
     {
         $user = static::getContainer()->get(UserRepository::class)->findOneByUsername('admin');
         $task = static::getContainer()->get(TaskRepository::class)->findOneBy(['author' => $user]);
@@ -106,7 +106,7 @@ class TaskControllerTest extends WebTestCase
         $this->assertRouteSame('app_login');
     }
 
-    public function testToggleTaskToDoTaskWhenLoggedIn(): void
+    public function testToggleToDoTaskWhenLoggedIn(): void
     {
         $user = SecurityControllerTest::login($this->client, 'admin');
         $task = static::getContainer()->get(TaskRepository::class)->findOneBy(['author' => $user]);
@@ -117,7 +117,7 @@ class TaskControllerTest extends WebTestCase
         if ($task->isDone() === false) $this->assertRouteSame('app_tasks_todo');
     }
 
-    public function testToggleTaskDoneTaskWhenLoggedIn(): void
+    public function testToggleDoneTaskWhenLoggedIn(): void
     {
         $user = SecurityControllerTest::login($this->client, 'admin');
         $task = static::getContainer()->get(TaskRepository::class)->findOneBy(['author' => $user]);
@@ -128,7 +128,7 @@ class TaskControllerTest extends WebTestCase
         if ($task->isDone() === true) $this->assertRouteSame('app_tasks_done');
     }
 
-    public function testDeleteTaskTask(): void
+    public function testDeleteTask(): void
     {
         $user = static::getContainer()->get(UserRepository::class)->findOneByUsername('admin');
         $task = static::getContainer()->get(TaskRepository::class)->findOneBy(['author' => $user]);
@@ -139,7 +139,7 @@ class TaskControllerTest extends WebTestCase
         $this->assertRouteSame('app_login');
     }
 
-    public function testDeleteTaskTaskWhenLoggedIn(): void
+    public function testDeleteTaskWhenLoggedIn(): void
     {
         $user = SecurityControllerTest::login($this->client, 'admin');
         $task = static::getContainer()->get(TaskRepository::class)->findOneBy(['author' => $user]);

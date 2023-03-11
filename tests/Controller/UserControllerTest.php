@@ -97,4 +97,31 @@ class UserControllerTest extends WebTestCase
         $this->client->followRedirect();
         $this->assertRouteSame('app_user_list');
     }
+
+    public function testDeleteUser(): void
+    {
+        $user = static::getContainer()->get(UserRepository::class)->findOneByUsername('admin');
+        $this->client->request(Request::METHOD_GET, '/admin/users/' . $user->getId() . '/delete');
+        $this->assertResponseRedirects();
+        $this->client->followRedirect();
+        $this->assertRouteSame('app_login');
+    }
+
+    public function testDeleteUserWhenLoggedIn(): void
+    {
+        SecurityControllerTest::login($this->client, 'admin');
+        $users = static::getContainer()->get(UserRepository::class)->findAll();
+        $usersExceptAdmins = [];
+
+        foreach ($users as $user) {
+            if (!in_array('ROLE_ADMIN', $user->getRoles(), true)) {
+                $usersExceptAdmins[] = $user;
+            }
+        }
+
+        $this->client->request(Request::METHOD_GET, '/admin/users/' . end($usersExceptAdmins)->getId() . '/delete');
+        $this->assertResponseRedirects();
+        $this->client->followRedirect();
+        $this->assertRouteSame('app_user_list');
+    }
 }
