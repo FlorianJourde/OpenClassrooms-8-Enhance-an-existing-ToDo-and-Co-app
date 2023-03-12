@@ -94,7 +94,6 @@
 
 .alert {
   background-color: var(--clr-very-light-green);
-  margin-bottom: 50px;
   flex-direction: column;
 }
 
