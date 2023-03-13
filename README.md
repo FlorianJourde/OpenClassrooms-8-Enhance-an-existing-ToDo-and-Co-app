@@ -18,7 +18,7 @@
 
 Bonjour et bienvenue sur le dépôt de mon travail, qui traite du huitième projet d'OpenClassrooms, intitulé **Améliorez une application existante de ToDo & Co** ! Vous trouverez, ci-après, la procédure d'installation pour prendre en main le code du projet, ainsi que la structure de la base de données.
 
-Vous trouverez, dans le dossier `ressources`, les **diagrammes UML**, la **base de données** au format SQL, le **rapport d'audit**, ainsi que le **rapport d'implémentation de l'authentification**.
+Vous trouverez, dans le dossier `ressources`, les **diagrammes UML**, la **base de données** au format SQL, le **rapport d'audit**, ainsi que la **documentation d'implémentation de l'authentification**.
 
 Dans le dossier `public/test-coverage` se trouvent les fichiers de **rapport de tests**, réalisés avec **PHPUnit**. Une version en ligne de ces rapport est disponible, vous les trouverez en cliquant sur le bouton "**Couverture de test**", ci-après.
 
