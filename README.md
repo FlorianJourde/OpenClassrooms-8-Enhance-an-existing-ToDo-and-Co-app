@@ -23,8 +23,10 @@ Vous trouverez, dans le dossier `ressources`, les **diagrammes UML**, la **base 
 Dans le dossier `public/test-coverage` se trouvent les fichiers de **rapport de tests**, réalisés avec **PHPUnit**. Une version en ligne de ces rapports est disponible, vous les trouverez en cliquant sur le bouton "**Couverture de test**", ci-après.
 
 [![Preview site](https://img.shields.io/badge/Site%20web--fe746e?style=for-the-badge&logo=InternetExplorer&logoColor=white)](http://todoandco.florianjourde.com/)
-[![Couverture de test](https://img.shields.io/badge/Couverture%20de%20test--7a86b8?style=for-the-badge&logo=PHP&logoColor=white)](https://testcoverage-todoandco.florianjourde.com/)
+[![Couverture de test](https://img.shields.io/badge/Couverture%20de%20test--7a86b8?style=for-the-badge&logo=PHP&logoColor=white)](https://testcoverage-todoandco.florianjourde.com/test-coverage/)
 [![Dépôt](https://img.shields.io/badge/Dépôt%20initial--000000?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/saro0h/projet8-TodoList)
+[![Audit](https://img.shields.io/badge/Audit--f0f4fd?style=for-the-badge&logo=Adobe-Acrobat-Reader&logoColor=white)](https://testcoverage-todoandco.florianjourde.com/ToDo%20&%20Co%20-%20Audit.pdf)
+[![Authentification](https://img.shields.io/badge/Authentification--fff5ca?style=for-the-badge&logo=Adobe-Acrobat-Reader&logoColor=white)](https://testcoverage-todoandco.florianjourde.com/ToDo%20&%20Co%20-%20Audit.pdf)
 
 
 ---
