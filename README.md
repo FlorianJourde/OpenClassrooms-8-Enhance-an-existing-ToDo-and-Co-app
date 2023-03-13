@@ -20,7 +20,7 @@ Bonjour et bienvenue sur le dépôt de mon travail, qui traite du huitième proj
 
 Vous trouverez, dans le dossier `ressources`, les **diagrammes UML**, la **base de données** au format SQL, le **rapport d'audit**, ainsi que la **documentation d'implémentation de l'authentification**.
 
-Dans le dossier `public/test-coverage` se trouvent les fichiers de **rapport de tests**, réalisés avec **PHPUnit**. Une version en ligne de ces rapports est disponible, vous les trouverez en cliquant sur le bouton "**Couverture de test**", ci-après.
+Dans ce même dossier `ressources` se trouvent les fichiers de **rapport de tests**, réalisés avec **PHPUnit**. Une version en ligne de ces rapports est disponible, vous les trouverez en cliquant sur le bouton "**Couverture de test**", ci-après.
 
 [![Preview site](https://img.shields.io/badge/Site%20web--fe746e?style=for-the-badge&logo=InternetExplorer&logoColor=white)](http://todoandco.florianjourde.com/)
 [![Couverture de test](https://img.shields.io/badge/Couverture%20de%20test--7a86b8?style=for-the-badge&logo=PHP&logoColor=white)](https://testcoverage-todoandco.florianjourde.com/test-coverage/)
