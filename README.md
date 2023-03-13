@@ -10,8 +10,8 @@
 [![Symfony Badge](https://img.shields.io/badge/Symfony-5.4-000000?style=flat-square&logo=symfony&logoColor=white/)](https://symfony.com/)
 [![Composer Badge](https://img.shields.io/badge/Composer-2.4-6c3e22?style=flat-square&logo=composer&logoColor=white/)](https://getcomposer.org/)
 [![PHP Badge](https://img.shields.io/badge/PHP-8.1-7a86b8?style=flat-square&logo=php&logoColor=white/)](https://www.php.net/)
-[![CSS Badge](https://img.shields.io/badge/CSS-3-1572B6?style=flat-square&logo=css3&logoColor=white/)](https://developer.mozilla.org/fr/docs/Web/CSS)
 [![Twig Badge](https://img.shields.io/badge/Twig-2.0-bacf29?style=flat-square&logo=symfony&logoColor=white/)](https://twig.symfony.com/)
+[![CSS Badge](https://img.shields.io/badge/CSS-3-1572B6?style=flat-square&logo=css3&logoColor=white/)](https://developer.mozilla.org/fr/docs/Web/CSS)
 [![Draw.io Badge](https://img.shields.io/badge/Diagrams.net-20.7-F08705?style=flat-square&logo=diagrams.net&logoColor=white/)](https://www.diagrams.net/)
 
 ### À propos
@@ -20,7 +20,7 @@ Bonjour et bienvenue sur le dépôt de mon travail, qui traite du huitième proj
 
 Vous trouverez, dans le dossier `ressources`, les **diagrammes UML**, la **base de données** au format SQL, le **rapport d'audit**, ainsi que la **documentation d'implémentation de l'authentification**.
 
-Dans le dossier `public/test-coverage` se trouvent les fichiers de **rapport de tests**, réalisés avec **PHPUnit**. Une version en ligne de ces rapport est disponible, vous les trouverez en cliquant sur le bouton "**Couverture de test**", ci-après.
+Dans le dossier `public/test-coverage` se trouvent les fichiers de **rapport de tests**, réalisés avec **PHPUnit**. Une version en ligne de ces rapports est disponible, vous les trouverez en cliquant sur le bouton "**Couverture de test**", ci-après.
 
 [![Preview site](https://img.shields.io/badge/Site%20web--fe746e?style=for-the-badge&logo=InternetExplorer&logoColor=white)](http://todoandco.florianjourde.com/)
 [![Couverture de test](https://img.shields.io/badge/Couverture%20de%20test--7a86b8?style=for-the-badge&logo=PHP&logoColor=white)](https://testcoverage-todoandco.florianjourde.com/)
@@ -121,16 +121,16 @@ Si vous rencontrez un problème à cette étape, veuillez vous assurer que WAMP 
 
 ## Contribution
 
-1. Pour contribuer au projet, il vous suffit de cliquer sur le bouton "fork", en haut de cette page.
+1. Pour contribuer au projet, il vous suffit de cliquer sur le bouton "**fork**", en haut de cette page.
 
 
-2. Un titre et une description vous seront demandées. Ces informations apparaîtront telles que vous les avez rempli sur votre compte GitHub. Vous pouvez les modifier par la suite.
+2. Un titre et une description vous seront demandées. Ces informations apparaîtront telles que vous les avez remplies sur votre compte GitHub. Vous pouvez les modifier par la suite.
 
 
-3. Cliquez ensuite sur le bouton "**Create fork**" pour importer le projet parmi vos projets sur GitHub.
+3. Cliquez ensuite sur le bouton "**Create fork**" pour importer le dépôt parmi vos projets sur GitHub.
 
 
-4. Une fois le projet ToDo & Co importé sur votre GitHub, vous êtes libre d'y apporter des modifications. Pour ce faire, clîner simplement le projet en local et commencez les modifications, sur la branche `main`, ou une branche dédiée.
+4. Une fois le projet ToDo & Co importé sur votre GitHub, vous êtes libre d'y apporter des modifications. Pour ce faire, clônez simplement le projet en local et commencez les modifications sur la branche `main`, ou une branche dédiée.
 
 
 ### Merci pour votre attention !
