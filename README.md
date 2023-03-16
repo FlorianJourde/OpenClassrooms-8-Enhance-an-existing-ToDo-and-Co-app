@@ -66,7 +66,7 @@ composer install
 
 4. Une fois l'installation des dépendances terminée, vous devez maintenant dupliquer le fichier `.env` situé à la racine du projet, puis renommer le nouveau fichier en `.env.local`, pour vous connecter à votre base de données. À la ligne 27, remplacez les identifiants de connexion par vos identifiants de base de données locale :
 
-```php
+```shell
 DATABASE_URL="mysql://username:password@127.0.0.1:3306/todoandco_db?serverVersion=5.7.36&charset=utf8mb4"
 ```
 
