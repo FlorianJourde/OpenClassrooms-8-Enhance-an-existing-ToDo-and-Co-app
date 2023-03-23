@@ -13,6 +13,8 @@
 [![Twig Badge](https://img.shields.io/badge/Twig-2.0-bacf29?style=flat-square&logo=symfony&logoColor=white/)](https://twig.symfony.com/)
 [![CSS Badge](https://img.shields.io/badge/CSS-3-1572B6?style=flat-square&logo=css3&logoColor=white/)](https://developer.mozilla.org/fr/docs/Web/CSS)
 [![Draw.io Badge](https://img.shields.io/badge/Diagrams.net-20.7-F08705?style=flat-square&logo=diagrams.net&logoColor=white/)](https://www.diagrams.net/)
+[![Codacy Badge](https://img.shields.io/badge/Codacy-B-8bc13e?style=flat-square&logo=codacy&logoColor=white/)](https://app.codacy.com/gh/FlorianJourde/OpenClassrooms-8-Enhance-an-existing-ToDo-and-Co-app/dashboard)
+
 
 ### À propos
 
