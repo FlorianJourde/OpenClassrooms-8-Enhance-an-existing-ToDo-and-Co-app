@@ -7,6 +7,7 @@
 
 ![OpenClassrooms banneer](./ressources/images/todo-and-co.jpg)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9d3a8a04dd0a45a3b1a99a5683ceaffa)](https://app.codacy.com/gh/FlorianJourde/OpenClassrooms-8-Enhance-an-existing-ToDo-and-Co-app?utm_source=github.com&utm_medium=referral&utm_content=FlorianJourde/OpenClassrooms-8-Enhance-an-existing-ToDo-and-Co-app&utm_campaign=Badge_Grade)
 [![Symfony Badge](https://img.shields.io/badge/Symfony-5.4-000000?style=flat-square&logo=symfony&logoColor=white/)](https://symfony.com/)
 [![Composer Badge](https://img.shields.io/badge/Composer-2.4-6c3e22?style=flat-square&logo=composer&logoColor=white/)](https://getcomposer.org/)
 [![PHP Badge](https://img.shields.io/badge/PHP-8.1-7a86b8?style=flat-square&logo=php&logoColor=white/)](https://www.php.net/)
