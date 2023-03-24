@@ -1,7 +1,15 @@
+body {
+  background-image: url("../img/pattern.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .icon {
   width: 20px;
   height: 20px;
 }
+
 .icon.white {
   fill: var(--clr-white);
 }
