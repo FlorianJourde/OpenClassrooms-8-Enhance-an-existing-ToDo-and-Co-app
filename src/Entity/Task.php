@@ -7,45 +7,31 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\TaskRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * @ORM\Entity(repositoryClass=TaskRepository::class)
- * @ORM\Table
- */
+#[ORM\Entity(repositoryClass:TaskRepository::class)]
+#[ORM\Table]
 class Task
 {
-    /**
-     * @ORM\Column(type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
+    #[ORM\Column(type:"integer")]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy:"AUTO")]
     private ?int $id = null;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
+    #[ORM\Column(type:"datetime")]
     private DateTime $createdAt;
 
-    /**
-     * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="Vous devez saisir un titre.")
-     */
+    #[ORM\Column(type:"string")]
+    #[Assert\NotBlank(message:"Vous devez saisir un titre.")]
     private string $title;
 
-    /**
-     * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Vous devez saisir du contenu.")
-     */
+    #[ORM\Column(type:"text")]
+    #[Assert\NotBlank(message:"Vous devez saisir du contenu.")]
     private string $content;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type:"boolean")]
     private bool $isDone;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="tasks")
-     * @ORM\JoinColumn(name="user_id",referencedColumnName="id", nullable=true, onDelete="CASCADE")
-     */
+    #[ORM\ManyToOne(targetEntity:User::class, inversedBy:"tasks")]
+    #[ORM\JoinColumn(name:"user_id",referencedColumnName:"id", nullable:true, onDelete:"CASCADE")]
     private ?User $author;
 
     public function __construct()
