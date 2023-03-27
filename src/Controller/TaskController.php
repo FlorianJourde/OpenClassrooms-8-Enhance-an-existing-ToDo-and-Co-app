@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TaskController extends AbstractController
 {
-     #[Route("/tasks", name:"app_task_list")]
+    #[Route("/tasks", name:"app_task_list")]
     public function listAction(TaskRepository $taskRepository)
     {
         $tasks = array_reverse($taskRepository->findAll());
@@ -21,7 +21,7 @@ class TaskController extends AbstractController
         return $this->render('task/list.html.twig', ['tasks' => $tasks]);
     }
 
-     #[Route("/tasks/todo", name:"app_tasks_todo")]
+    #[Route("/tasks/todo", name:"app_tasks_todo")]
     public function getTodoTasks(TaskRepository $taskRepository)
     {
         $doneTasks = $taskRepository->findAllByStatus(false);
@@ -29,7 +29,7 @@ class TaskController extends AbstractController
         return $this->render('task/list-todo.html.twig', ['tasks' => $doneTasks]);
     }
 
-     #[Route("/tasks/done", name:"app_tasks_done")]
+    #[Route("/tasks/done", name:"app_tasks_done")]
     public function getDoneTasks(TaskRepository $taskRepository)
     {
         $doneTasks = $taskRepository->findAllByStatus(true);
