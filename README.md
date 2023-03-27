@@ -80,20 +80,14 @@ php bin/console doctrine:database:create
 ```
 
 
-6. Exportez désormais la structure de votre base de données, grace aux commandes suivantes :
-
-```shell
-php bin/console make:migration
-```
-
-puis
+6. Exportez désormais la structure de votre base de données, grace à la commande suivante :
 
 ```shell
 php bin/console doctrine:migrations:migrate
 ```
 
 
-7. Si tout s'est correctement déroulé, une nouvelle base de données `todoandco_db` est apparu parmi les tables de votre serveur local. Lancez ensuite la commande suivante pour générer un jeu de données, s'appuyant sur les fixtures :
+7. Si tout s'est correctement déroulé, une nouvelle base de données `todoandco_db` est apparu parmi les tables de votre serveur local. Lancez ensuite la commande suivante pour générer un jeu de données initial, s'appuyant sur les fixtures :
 
 ```shell
 php bin/console doctrine:fixtures:load
