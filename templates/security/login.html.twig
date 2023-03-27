@@ -8,11 +8,11 @@
             <form method="post">
 
                 {% if error %}
-                    <div class="alert error center-text">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    <div class="alert error center-text margin-bottom-50">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                 {% endif %}
 
                 {% if app.user %}
-                    <div class="alert info inline center-text">
+                    <div class="alert info inline center-text margin-bottom-50">
                         Vous êtes connecté en tant que <span style="font-weight: 500;">{{ app.user.userIdentifier }}</span>, <a href="{{ path('app_logout') }}">se déconnecter</a>.
                     </div>
                 {% else %}

@@ -1,12 +1,6 @@
 <main class="tasks-section">
     <div class="wrapper">
 
-        {% if is_granted('ROLE_USER') %}
-            <div class="actions margin-top-50">
-                <a href="{{ path('app_task_create') }}" class="button-primary button-big button-blue">Créer une tâche</a>
-            </div>
-        {% endif %}
-
         {% if tasks is not empty %}
 
             <div class="tasks-grid margin-top-50">
