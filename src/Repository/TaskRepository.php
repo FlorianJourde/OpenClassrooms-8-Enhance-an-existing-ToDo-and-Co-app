@@ -51,8 +51,6 @@ class TaskRepository extends ServiceEntityRepository
 
     public function findSome($value): Array
     {
-//        dd($this);
-
         return $this->createQueryBuilder('t')
             ->setMaxResults($value)
             ->orderBy('t.id', 'DESC')
