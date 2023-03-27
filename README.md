@@ -7,7 +7,7 @@
 
 ![OpenClassrooms banneer](./ressources/images/todo-and-co.jpg)
 
-[![Symfony Badge](https://img.shields.io/badge/Symfony-5.4-000000?style=flat-square&logo=symfony&logoColor=white/)](https://symfony.com/)
+[![Symfony Badge](https://img.shields.io/badge/Symfony-6.2-000000?style=flat-square&logo=symfony&logoColor=white/)](https://symfony.com/)
 [![Composer Badge](https://img.shields.io/badge/Composer-2.4-6c3e22?style=flat-square&logo=composer&logoColor=white/)](https://getcomposer.org/)
 [![PHP Badge](https://img.shields.io/badge/PHP-8.1-7a86b8?style=flat-square&logo=php&logoColor=white/)](https://www.php.net/)
 [![Twig Badge](https://img.shields.io/badge/Twig-2.0-bacf29?style=flat-square&logo=symfony&logoColor=white/)](https://twig.symfony.com/)
