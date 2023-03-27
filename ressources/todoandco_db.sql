@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 13 mars 2023 à 13:59
+-- Généré le : lun. 27 mars 2023 à 13:31
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.1.0
 
@@ -40,9 +40,7 @@ CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
 --
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20230303124106', '2023-03-03 12:41:09', 139),
-('DoctrineMigrations\\Version20230303130937', '2023-03-03 13:09:40', 84),
-('DoctrineMigrations\\Version20230310160543', '2023-03-10 16:05:49', 120);
+('DoctrineMigrations\\Version20230327094218', '2023-03-27 09:49:49', 67);
 
 -- --------------------------------------------------------
 
@@ -74,50 +72,50 @@ CREATE TABLE IF NOT EXISTS `messenger_messages` (
 DROP TABLE IF EXISTS `task`;
 CREATE TABLE IF NOT EXISTS `task` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_done` tinyint(1) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_527EDB25A76ED395` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=281 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `task`
 --
 
-INSERT INTO `task` (`id`, `created_at`, `title`, `content`, `is_done`, `user_id`) VALUES
-(251, '2023-03-13 13:58:12', 'Rappels', '06 89 70 46 99 </br> 05 55 03 42 29 </br> 04 56 23 32 17', 0, 77),
-(252, '2023-03-13 13:58:12', 'Numéro de téléphone', '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>', 1, 79),
-(253, '2023-03-13 13:58:12', 'Médecin', 'Nicolas Jaar, Rival Consoles, Weval, Max Cooper, Daniel Avery, Boards of Canada, The Chemical Brothers, Todd Terje, Daniel Avery, The XX, Moderat, Superpoze, Rone, LCD Soundsystem...', 1, 79),
-(254, '2023-03-13 13:58:12', 'Site web', 'www.senscritique.com <br> www.allocine.com <br> www.last.fm', 0, NULL),
-(255, '2023-03-13 13:58:12', '29/04', 'Saint-Germain-les-Prés <br> Ligne 3', 0, NULL),
-(256, '2023-03-13 13:58:12', '5 mai 2023', 'Saint-Germain-les-Prés <br> Ligne 3', 1, NULL),
-(257, '2023-03-13 13:58:12', 'Musique', '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>', 0, NULL),
-(258, '2023-03-13 13:58:12', 'Liste de courses', 'Saint-Germain-les-Prés <br> Ligne 3', 1, 78),
-(259, '2023-03-13 13:58:12', 'Métro', 'Saint-Germain-les-Prés <br> Ligne 3', 0, NULL),
-(260, '2023-03-13 13:58:12', 'Livres à lire', 'Préparer la soutenance <br>', 0, 76),
-(261, '2023-03-13 13:58:12', 'Musique', 'Aniversaire de Grégory', 0, 79),
-(262, '2023-03-13 13:58:12', 'Métro', 'Préparer la soutenance <br>', 0, 76),
-(263, '2023-03-13 13:58:12', '29/04', 'www.senscritique.com <br> www.allocine.com <br> www.last.fm', 0, NULL),
-(264, '2023-03-13 13:58:12', 'Réunion 17/03', 'Nicolas Jaar, Rival Consoles, Weval, Max Cooper, Daniel Avery, Boards of Canada, The Chemical Brothers, Todd Terje, Daniel Avery, The XX, Moderat, Superpoze, Rone, LCD Soundsystem...', 0, 76),
-(265, '2023-03-13 13:58:12', 'Site web', 'Nicolas Jaar, Rival Consoles, Weval, Max Cooper, Daniel Avery, Boards of Canada, The Chemical Brothers, Todd Terje, Daniel Avery, The XX, Moderat, Superpoze, Rone, LCD Soundsystem...', 1, 78),
-(266, '2023-03-13 13:58:12', 'Musique', 'Aniversaire de Grégory', 1, NULL),
-(267, '2023-03-13 13:58:12', 'Numéro de téléphone', 'Saint-Germain-les-Prés <br> Ligne 3', 0, 77),
-(268, '2023-03-13 13:58:12', 'Métro', 'Éric Roulhac <br> 141 Bis Av. de Limoges <br> 87270 Couzeix <br> 05 55 39 32 98', 1, 77),
-(269, '2023-03-13 13:58:12', 'Rappels', 'Saint-Germain-les-Prés <br> Ligne 3', 1, 77),
-(270, '2023-03-13 13:58:12', '5 mai 2023', 'Préparer la soutenance <br>', 1, 76),
-(271, '2023-03-13 13:58:12', 'Liste de courses', 'L\'Étranger, Sapiens, Le Pouvoir du Moment Présent, Les quatre accords toltèques', 0, 79),
-(272, '2023-03-13 13:58:12', 'Médecin', '06 89 70 46 99 </br> 05 55 03 42 29 </br> 04 56 23 32 17', 1, 79),
-(273, '2023-03-13 13:58:12', 'Liste de courses', 'L\'Étranger, Sapiens, Le Pouvoir du Moment Présent, Les quatre accords toltèques', 0, 77),
-(274, '2023-03-13 13:58:12', 'Métro', '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>', 0, 77),
-(275, '2023-03-13 13:58:12', '29/04', 'Éric Roulhac <br> 141 Bis Av. de Limoges <br> 87270 Couzeix <br> 05 55 39 32 98', 1, 79),
-(276, '2023-03-13 13:58:12', 'Réunion 17/03', '06 89 70 46 99 </br> 05 55 03 42 29 </br> 04 56 23 32 17', 1, 78),
-(277, '2023-03-13 13:58:12', 'Numéro de téléphone', 'Aniversaire de Grégory', 0, 76),
-(278, '2023-03-13 13:58:12', 'Musique', 'Préparer la soutenance <br>', 0, 79),
-(279, '2023-03-13 13:58:12', 'Musique', 'Nicolas Jaar, Rival Consoles, Weval, Max Cooper, Daniel Avery, Boards of Canada, The Chemical Brothers, Todd Terje, Daniel Avery, The XX, Moderat, Superpoze, Rone, LCD Soundsystem...', 1, 77),
-(280, '2023-03-13 13:58:12', 'Site web', 'Sorti les poubelles <br> Promener le chien', 1, 76);
+INSERT INTO `task` (`id`, `user_id`, `created_at`, `title`, `content`, `is_done`) VALUES
+(65, 15, '2023-03-27 11:30:20', 'Numéro de téléphone', '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>', 0),
+(66, 15, '2023-03-27 11:30:20', 'Réunion 17/03', 'Nicolas Jaar, Rival Consoles, Weval, Max Cooper, Daniel Avery, Boards of Canada, The Chemical Brothers, Todd Terje, Daniel Avery, The XX, Moderat, Superpoze, Rone, LCD Soundsystem...', 1),
+(67, NULL, '2023-03-27 11:30:20', 'Musique', 'L\'Étranger, Sapiens, Le Pouvoir du Moment Présent, Les quatre accords toltèques', 0),
+(68, 14, '2023-03-27 11:30:20', 'Numéro de téléphone', 'www.senscritique.com <br> www.allocine.com <br> www.last.fm', 1),
+(69, 14, '2023-03-27 11:30:20', 'Liste de courses', 'www.senscritique.com <br> www.allocine.com <br> www.last.fm', 0),
+(70, 13, '2023-03-27 11:30:20', 'Métro', 'Saint-Germain-les-Prés <br> Ligne 3', 0),
+(71, 16, '2023-03-27 11:30:20', 'Métro', 'Aniversaire de Grégory', 0),
+(72, NULL, '2023-03-27 11:30:20', 'Médecin', 'www.senscritique.com <br> www.allocine.com <br> www.last.fm', 1),
+(73, 15, '2023-03-27 11:30:20', 'Site web', '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>', 1),
+(74, 14, '2023-03-27 11:30:20', '5 mai 2023', '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>', 1),
+(75, 15, '2023-03-27 11:30:20', 'Site web', '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>', 0),
+(76, 13, '2023-03-27 11:30:20', 'Liste de courses', 'Préparer la soutenance <br>', 0),
+(77, NULL, '2023-03-27 11:30:20', 'Rappels', 'Saint-Germain-les-Prés <br> Ligne 3', 1),
+(78, 16, '2023-03-27 11:30:20', '5 mai 2023', 'Préparer la soutenance <br>', 0),
+(79, 15, '2023-03-27 11:30:20', 'Métro', 'Sorti les poubelles <br> Promener le chien', 1),
+(80, 15, '2023-03-27 11:30:20', 'Réunion 17/03', 'Nicolas Jaar, Rival Consoles, Weval, Max Cooper, Daniel Avery, Boards of Canada, The Chemical Brothers, Todd Terje, Daniel Avery, The XX, Moderat, Superpoze, Rone, LCD Soundsystem...', 1),
+(81, 14, '2023-03-27 11:30:20', 'Livres à lire', 'Nicolas Jaar, Rival Consoles, Weval, Max Cooper, Daniel Avery, Boards of Canada, The Chemical Brothers, Todd Terje, Daniel Avery, The XX, Moderat, Superpoze, Rone, LCD Soundsystem...', 1),
+(82, 16, '2023-03-27 11:30:20', '29/04', 'Aniversaire de Grégory', 1),
+(83, 15, '2023-03-27 11:30:20', 'Numéro de téléphone', 'Éric Roulhac <br> 141 Bis Av. de Limoges <br> 87270 Couzeix <br> 05 55 39 32 98', 0),
+(84, 13, '2023-03-27 11:30:20', 'Liste de courses', 'L\'Étranger, Sapiens, Le Pouvoir du Moment Présent, Les quatre accords toltèques', 0),
+(85, 16, '2023-03-27 11:30:20', 'Site web', 'Nicolas Jaar, Rival Consoles, Weval, Max Cooper, Daniel Avery, Boards of Canada, The Chemical Brothers, Todd Terje, Daniel Avery, The XX, Moderat, Superpoze, Rone, LCD Soundsystem...', 1),
+(86, NULL, '2023-03-27 11:30:20', 'Livres à lire', 'Aniversaire de Grégory', 1),
+(87, 13, '2023-03-27 11:30:20', 'Musique', 'Éric Roulhac <br> 141 Bis Av. de Limoges <br> 87270 Couzeix <br> 05 55 39 32 98', 1),
+(88, 13, '2023-03-27 11:30:20', 'Réunion 17/03', '06 89 70 46 99 </br> 05 55 03 42 29 </br> 04 56 23 32 17', 1),
+(89, NULL, '2023-03-27 11:30:20', 'Musique', '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>', 1),
+(90, 15, '2023-03-27 11:30:20', 'Livres à lire', '06 89 70 46 99 </br> 05 55 03 42 29 </br> 04 56 23 32 17', 0),
+(91, 14, '2023-03-27 11:30:20', 'Métro', '06 89 70 46 99 </br> 05 55 03 42 29 </br> 04 56 23 32 17', 1),
+(92, 15, '2023-03-27 11:30:20', 'Site web', '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>', 1),
+(93, 14, '2023-03-27 11:30:20', 'Site web', 'Éric Roulhac <br> 141 Bis Av. de Limoges <br> 87270 Couzeix <br> 05 55 39 32 98', 0),
+(94, 13, '2023-03-27 11:30:20', 'Site web', 'Aniversaire de Grégory', 0);
 
 -- --------------------------------------------------------
 
@@ -134,17 +132,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`, `username`) VALUES
-(76, 'admin@todoandco.com', '[\"ROLE_ADMIN\", \"ROLE_USER\"]', '$2y$13$YP.zPS7Nmq/BVRyuSQJWeeZmT/u79Jq5K6rKvU9/Xjb9IJ5KehX02', 'Admin'),
-(77, 'user1@todoandco.com', '[\"ROLE_USER\"]', '$2y$13$f8rdEtUOqCPITKS2nh2bs.Ixudm6wRL3nm4xtX9upwxSOuXeV2ajO', 'Utilisateur1'),
-(78, 'user2@todoandco.com', '[\"ROLE_USER\"]', '$2y$13$etEm5zyz5rdPfTEo/5d50uaaNobwbAiErZs4XbbjITKAxE0RwrHiy', 'Utilisateur2'),
-(79, 'user3@todoandco.com', '[\"ROLE_USER\"]', '$2y$13$.ycOCdPBKSxiB.igZRjpreffbmqtAv7eGOLsET8xgYwwgftV4y686', 'Utilisateur3');
+(13, 'admin@todoandco.com', '[\"ROLE_ADMIN\", \"ROLE_USER\"]', '$2y$13$J/bUYvhpwZMlNdIuuYv1huiq.c/CWN2uGAjiidCbSpJpYgxl.P4zO', 'Admin'),
+(14, 'user1@todoandco.com', '[\"ROLE_USER\"]', '$2y$13$YyLCvyJ16D6F6Ojc4trISeLcipqRbgN3Jty67Vvy6VOZgRRTeWVP2', 'Utilisateur1'),
+(15, 'user2@todoandco.com', '[\"ROLE_USER\"]', '$2y$13$aeLRjqs0hmGWD1QQgwKYa.qTniVpWOaujf0LPzGT.JWUXoIJeLzy2', 'Utilisateur2'),
+(16, 'user3@todoandco.com', '[\"ROLE_USER\"]', '$2y$13$xv6l6KN83NAPUe2fx/ZsyuhKZAOo1wX.m35U2p2f6NWaWb.aRb4ey', 'Utilisateur3');
 
 --
 -- Contraintes pour les tables déchargées
