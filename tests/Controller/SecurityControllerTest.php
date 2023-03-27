@@ -27,15 +27,6 @@ class SecurityControllerTest extends WebTestCase
         $this->assertTrue($client->getRequest()->getPathInfo() === '/');
     }
 
-    public function testLogout(): void
-    {
-        $this->markTestSkipped();
-
-        $client = static::createClient();
-        $client->request('GET', '/logout');
-        $this->expectException('LogicException');
-    }
-
     public static function login(KernelBrowser $client, string $as): ?User
     {
         try {

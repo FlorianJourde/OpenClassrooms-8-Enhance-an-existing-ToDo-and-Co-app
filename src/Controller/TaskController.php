@@ -6,16 +6,14 @@ use App\Entity\Task;
 use App\Form\TaskType;
 use App\Repository\TaskRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class TaskController extends AbstractController
 {
-    /**
-     * @Route("/tasks", name="app_task_list")
-     */
+     #[Route("/tasks", name:"app_task_list")]
     public function listAction(TaskRepository $taskRepository)
     {
         $tasks = array_reverse($taskRepository->findAll());
@@ -23,9 +21,7 @@ class TaskController extends AbstractController
         return $this->render('task/list.html.twig', ['tasks' => $tasks]);
     }
 
-    /**
-     * @Route("/tasks/todo", name="app_tasks_todo")
-     */
+     #[Route("/tasks/todo", name:"app_tasks_todo")]
     public function getTodoTasks(TaskRepository $taskRepository)
     {
         $doneTasks = $taskRepository->findAllByStatus(false);
@@ -33,9 +29,7 @@ class TaskController extends AbstractController
         return $this->render('task/list-todo.html.twig', ['tasks' => $doneTasks]);
     }
 
-    /**
-     * @Route("/tasks/done", name="app_tasks_done")
-     */
+     #[Route("/tasks/done", name:"app_tasks_done")]
     public function getDoneTasks(TaskRepository $taskRepository)
     {
         $doneTasks = $taskRepository->findAllByStatus(true);
@@ -43,10 +37,8 @@ class TaskController extends AbstractController
         return $this->render('task/list-done.html.twig', ['tasks' => $doneTasks]);
     }
 
-    /**
-     * @IsGranted("ROLE_USER")
-     * @Route("/tasks/create", name="app_task_create")
-     */
+     #[IsGranted("ROLE_USER")]
+     #[Route("/tasks/create", name:"app_task_create")]
     public function createAction(Request $request, EntityManagerInterface $em)
     {
         $task = new Task();
@@ -67,10 +59,8 @@ class TaskController extends AbstractController
         return $this->render('task/create.html.twig', ['form' => $form->createView()]);
     }
 
-    /**
-     * @IsGranted("ROLE_USER")
-     * @Route("/tasks/{id}/edit", name="app_task_edit")
-     */
+    #[IsGranted("ROLE_USER")]
+    #[Route("/tasks/{id}/edit", name:"app_task_edit")]
     public function editAction(Task $task, Request $request, EntityManagerInterface $em)
     {
         $form = $this->createForm(TaskType::class, $task);
@@ -88,10 +78,8 @@ class TaskController extends AbstractController
         return $this->render('task/edit.html.twig', ['form' => $form->createView(), 'task' => $task]);
     }
 
-    /**
-     * @IsGranted("ROLE_USER")
-     * @Route("/tasks/{id}/toggle", name="app_task_toggle")
-     */
+    #[IsGranted("ROLE_USER")]
+    #[Route("/tasks/{id}/toggle", name:"app_task_toggle")]
     public function toggleTaskAction(Task $task, EntityManagerInterface $em, Request $request)
     {
         $task->toggle(!$task->isDone());
@@ -108,10 +96,8 @@ class TaskController extends AbstractController
         }
     }
 
-    /**
-     * @IsGranted("ROLE_USER")
-     * @Route("/tasks/{id}/delete", name="app_task_delete")
-     */
+    #[IsGranted("ROLE_USER")]
+    #[Route("/tasks/{id}/delete", name:"app_task_delete")]
     public function deleteTaskAction(Task $task, EntityManagerInterface $em)
     {
         $this->denyAccessUnlessGranted('task_delete', $task);

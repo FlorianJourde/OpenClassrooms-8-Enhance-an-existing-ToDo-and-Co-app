@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 404{% endblock %}
+
+{% block body %}
+
+    <main class="error-section margin-top-50 center-text">
+        <div class="wrapper">
+            <h3>Oups, une erreur est survenue...</h3>
+            <p>La page à laquelle vous essayez d'accéder ne peut pas être chargée.</p>
+            <div class="actions margin-top-50">
+                <a href="{{ path('app_homepage') }}" class="button-primary button-big button-blue">Page d'accueil</a>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}
