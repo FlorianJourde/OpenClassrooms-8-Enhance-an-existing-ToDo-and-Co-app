@@ -3,21 +3,21 @@
 namespace App\DataFixtures;
 
 use App\Entity\Task;
-use App\Entity\User;
+use App\Repository\UserRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-class AppFixtures extends Fixture
+class TaskFixtures extends Fixture implements DependentFixtureInterface
 {
-    private UserPasswordHasherInterface $userPasswordHasher;
+    private UserRepository $userRepository;
 
     /**
      * @codeCoverageIgnore
      */
-    public function __construct(UserPasswordHasherInterface $userPasswordHasher)
+    public function __construct(UserRepository $userRepository)
     {
-        $this->userPasswordHasher = $userPasswordHasher;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -25,23 +25,9 @@ class AppFixtures extends Fixture
      */
     public function load(ObjectManager $manager): void
     {
-        $users = [null];
-
-        $admin = new User();
-        $admin->setRoles(['ROLE_ADMIN', 'ROLE_USER']);
-        $admin->setPassword($this->userPasswordHasher->hashPassword($admin, '123456'));
-        $admin->setEmail('admin@todoandco.com');
-        $admin->setUsername('Admin');
-        $manager->persist($admin);
-        $users[] = $admin;
-
-        for ($i = 0; $i < 3; $i++) {
-            $user = new User();
-            $user->setRoles(['ROLE_USER']);
-            $user->setPassword($this->userPasswordHasher->hashPassword($user, '123456'));
-            $user->setEmail('user' . ($i + 1)  . '@todoandco.com');
-            $user->setUsername('Utilisateur' . ($i + 1));
-            $manager->persist($user);
+        $users = [];
+        $users[] = null;
+        foreach ($this->userRepository->findAll() as $user) {
             $users[] = $user;
         }
 
@@ -54,7 +40,7 @@ class AppFixtures extends Fixture
             'Éric Roulhac <br> 141 Bis Av. de Limoges <br> 87270 Couzeix <br> 05 55 39 32 98',
             'Saint-Germain-les-Prés <br> Ligne 3',
             'Nicolas Jaar, Rival Consoles, Weval, Max Cooper, Daniel Avery, Boards of Canada, The Chemical Brothers, Todd Terje, Daniel Avery, The XX, Moderat, Superpoze, Rone, LCD Soundsystem...',
-            'Sorti les poubelles <br> Promener le chien',
+            'Sortir les poubelles <br> Promener le chien',
             'L\'Étranger, Sapiens, Le Pouvoir du Moment Présent, Les quatre accords toltèques',
             'www.senscritique.com <br> www.allocine.com <br> www.last.fm'
         ];
@@ -71,5 +57,12 @@ class AppFixtures extends Fixture
         }
 
         $manager->flush();
+    }
+
+    public function getDependencies(): array
+    {
+        return [
+            UserFixtures::class,
+        ];
     }
 }

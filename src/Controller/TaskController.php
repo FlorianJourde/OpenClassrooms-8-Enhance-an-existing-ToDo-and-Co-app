@@ -6,7 +6,7 @@ use App\Entity\Task;
 use App\Form\TaskType;
 use App\Repository\TaskRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,8 +37,8 @@ class TaskController extends AbstractController
         return $this->render('task/list-done.html.twig', ['tasks' => $doneTasks]);
     }
 
-     #[IsGranted("ROLE_USER")]
-     #[Route("/tasks/create", name:"app_task_create")]
+    #[IsGranted("ROLE_USER")]
+    #[Route("/tasks/create", name:"app_task_create")]
     public function createAction(Request $request, EntityManagerInterface $em)
     {
         $task = new Task();
