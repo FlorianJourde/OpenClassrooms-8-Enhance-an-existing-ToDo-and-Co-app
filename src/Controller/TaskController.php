@@ -37,8 +37,8 @@ class TaskController extends AbstractController
         return $this->render('task/list-done.html.twig', ['tasks' => $doneTasks]);
     }
 
-     #[IsGranted("ROLE_USER")]
-     #[Route("/tasks/create", name:"app_task_create")]
+    #[IsGranted("ROLE_USER")]
+    #[Route("/tasks/create", name:"app_task_create")]
     public function createAction(Request $request, EntityManagerInterface $em)
     {
         $task = new Task();
