@@ -24,7 +24,7 @@ class TaskController extends AbstractController
     #[Route("/tasks/todo", name:"app_tasks_todo")]
     public function getTodoTasks(TaskRepository $taskRepository)
     {
-        $doneTasks = $taskRepository->findAllByStatus(false);
+        $doneTasks = array_reverse($taskRepository->findAllByStatus(false));
 
         return $this->render('task/list-todo.html.twig', ['tasks' => $doneTasks]);
     }
@@ -32,7 +32,7 @@ class TaskController extends AbstractController
     #[Route("/tasks/done", name:"app_tasks_done")]
     public function getDoneTasks(TaskRepository $taskRepository)
     {
-        $doneTasks = $taskRepository->findAllByStatus(true);
+        $doneTasks = array_reverse($taskRepository->findAllByStatus(true));
 
         return $this->render('task/list-done.html.twig', ['tasks' => $doneTasks]);
     }

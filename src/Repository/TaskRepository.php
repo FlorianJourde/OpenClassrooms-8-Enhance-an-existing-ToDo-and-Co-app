@@ -39,7 +39,7 @@ class TaskRepository extends ServiceEntityRepository
         }
     }
 
-    public function findAllByStatus(bool $value): Array
+    public function findAllByStatus(bool $value)
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.isDone = :val')
@@ -49,7 +49,7 @@ class TaskRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findSome($value): Array
+    public function findSome($value)
     {
         return $this->createQueryBuilder('t')
             ->setMaxResults($value)

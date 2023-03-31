@@ -33,9 +33,9 @@ class TaskFixtures extends Fixture implements DependentFixtureInterface
 
         $tasksTitle = ['Réunion 17/03', 'Métro', 'Numéro de téléphone', 'Liste de courses', '5 mai 2023', 'Livres à lire', 'Musique', 'Site web', 'Rappels', 'Médecin', '29/04'];
         $tasksContent = [
-            '06 89 70 46 99 </br> 05 55 03 42 29 </br> 04 56 23 32 17',
-            'Aniversaire de Grégory',
-            '- Beurre </br> - Endives </br> - Poireau </br> - Bananes <br> - Carottes <br> - Champignons <br>',
+            '06 89 70 46 99 <br> 05 55 03 42 29 <br> 04 56 23 32 17',
+            'Anniversaire de Grégory',
+            '- Beurre <br> - Endives <br> - Poireau <br> - Bananes <br> - Carottes <br> - Champignons <br>',
             'Préparer la soutenance <br>',
             'Éric Roulhac <br> 141 Bis Av. de Limoges <br> 87270 Couzeix <br> 05 55 39 32 98',
             'Saint-Germain-les-Prés <br> Ligne 3',
@@ -59,6 +59,9 @@ class TaskFixtures extends Fixture implements DependentFixtureInterface
         $manager->flush();
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getDependencies(): array
     {
         return [
