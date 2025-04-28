@@ -54,6 +54,21 @@ jobs:
               echo ".env.local file already exists, keeping it intact"
             fi
 
+      - name: Install Composer 2 locally
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          port: ${{ secrets.REMOTE_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ${{ secrets.REMOTE_TARGET }}
+            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+            php composer-setup.php
+            php -r "unlink('composer-setup.php');"
+            # Vérifier que nous avons bien Composer 2
+            php composer.phar --version
+
       - name: Install dependencies on server
         uses: appleboy/ssh-action@master
         with:
