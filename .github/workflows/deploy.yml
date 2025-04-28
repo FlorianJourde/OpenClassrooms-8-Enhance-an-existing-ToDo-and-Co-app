@@ -78,7 +78,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ${{ secrets.REMOTE_TARGET }}
-            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+            ~/bin/composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Post-deploy setup
         uses: appleboy/ssh-action@master
