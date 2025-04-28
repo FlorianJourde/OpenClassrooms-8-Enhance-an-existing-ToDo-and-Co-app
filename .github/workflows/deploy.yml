@@ -54,6 +54,17 @@ jobs:
               echo ".env.local file already exists, keeping it intact"
             fi
 
+      - name: Update Composer to version 2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          port: ${{ secrets.REMOTE_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ${{ secrets.REMOTE_TARGET }}
+            composer self-update --2
+
       - name: Install dependencies on server
         uses: appleboy/ssh-action@master
         with:
